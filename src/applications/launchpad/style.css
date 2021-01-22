@@ -1,0 +1,10 @@
+#launchpad {
+  /* width: 100%;
+  height: 100%; */
+  width: 600px;
+  height: 400px;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  background: rgba(0, 0, 0, 0.5);
+}
