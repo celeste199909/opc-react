@@ -1,15 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from "react-redux"
+import store from "./store/index"
 
-import AppManager from "./components/app-manager/index"
-// import Dock from "./components/dock/index";
-
-import "./style/app.css"
-import "./style/reset.css"
+import WebPC from "./WebPC"
 
 ReactDOM.render(
-  <React.StrictMode>
-    <AppManager />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <WebPC />
+  </Provider>,
   document.getElementById('root')
 );

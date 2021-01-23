@@ -3,20 +3,20 @@ import "./style.css"
 
 import Toolbar from "../../components/app-tool-bar"
 
-let Setting = {
-  name: "Setting",
+let Music = {
+  name: "Music",
   version: "1.0.0",
-  Icon: SettingIcon,
-  UI: SettingUI
+  Icon: MusicIcon,
+  UI: MusicUI
 }
 
-function SettingIcon(props) {
+function MusicIcon(props) {
   return (
-    <div className="icon setting" onClick={props.handleClick}>设置icon</div>
+    <div className="icon" onClick={props.handleClick}>音乐icon</div>
   );
 }
 
-function SettingUI(props) {
+function MusicUI(props) {
 
   let [isMinimize, setMinimize] = useState(false)
   // console.log(setMinimize);
@@ -26,10 +26,12 @@ function SettingUI(props) {
   }
 
   return (
-    <div id="setting" className={isMinimize ? "minimize" : ""}>
+    <div id="music" className={isMinimize ? "minimize" : ""}>
       <Toolbar theApp={{...props.theApp, minimizeApp}}/>
+      <div>{Music.name}</div>
+      <div>{Music.version}</div>
     </div>
   );
 }
 
-export default Setting;
+export default Music;

@@ -9,14 +9,14 @@
   user-select: none;
 
   color: aliceblue;
+  background-color: #4d4d4d;
 }
 /* 图标 */
 .icon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   color: #000;
   background-color: skyblue;
-  margin: 10px;
 }
 /* 窗口工具条 */
 .tools-bar {
@@ -30,4 +30,8 @@
   width: 30px;
   height: 30px;
   border: 1px solid #000;
+}
+/* 最小化 */
+.minimize {
+  visibility: hidden;
 }
