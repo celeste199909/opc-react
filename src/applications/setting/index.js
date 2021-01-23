@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css"
 
+import AppIcon from "../../components/app-icon"
 import Toolbar from "../../components/app-tool-bar"
 
 let Setting = {
-  name: "Setting",
+  name: "setting",
   version: "1.0.0",
   Icon: SettingIcon,
   UI: SettingUI
@@ -12,22 +13,14 @@ let Setting = {
 
 function SettingIcon(props) {
   return (
-    <div className="icon setting" onClick={props.handleClick}>设置icon</div>
+    <AppIcon theApp={Setting}/>
   );
 }
 
 function SettingUI(props) {
-
-  let [isMinimize, setMinimize] = useState(false)
-  // console.log(setMinimize);
- 
-  function minimizeApp() {
-     setMinimize(!isMinimize)
-  }
-
   return (
-    <div id="setting" className={isMinimize ? "minimize" : ""}>
-      <Toolbar theApp={{...props.theApp, minimizeApp}}/>
+    <div id="setting" className="application">
+      <Toolbar theApp={Setting}/>
     </div>
   );
 }

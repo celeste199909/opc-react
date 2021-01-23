@@ -16,3 +16,23 @@
   height: 50px;
   border: 1px solid red;
 }
+/* 开始菜单 */
+#start-menu {
+  position: relative;
+}
+#start-menu .btn {
+  width: 100%;
+  height: 100%;
+}
+#start-menu .list {
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 50px;
+  display: none;
+}
+#start-menu .list.active {
+  display: block;
+}
+

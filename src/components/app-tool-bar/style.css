@@ -1,0 +1,13 @@
+/* 窗口工具条 */
+.tools-bar {
+  display: flex;
+  justify-content: space-between;
+}
+.tools-bar .window-operation {
+  display: flex;
+}
+.tools-bar .window-operation > div {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000;
+}

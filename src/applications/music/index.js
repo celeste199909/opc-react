@@ -1,10 +1,10 @@
-import React, { useState } from "react";
 import "./style.css"
 
+import AppIcon from "../../components/app-icon"
 import Toolbar from "../../components/app-tool-bar"
 
 let Music = {
-  name: "Music",
+  name: "music",
   version: "1.0.0",
   Icon: MusicIcon,
   UI: MusicUI
@@ -12,22 +12,14 @@ let Music = {
 
 function MusicIcon(props) {
   return (
-    <div className="icon" onClick={props.handleClick}>音乐icon</div>
+    <AppIcon theApp={Music}/>
   );
 }
 
 function MusicUI(props) {
-
-  let [isMinimize, setMinimize] = useState(false)
-  // console.log(setMinimize);
- 
-  function minimizeApp() {
-     setMinimize(!isMinimize)
-  }
-
   return (
-    <div id="music" className={isMinimize ? "minimize" : ""}>
-      <Toolbar theApp={{...props.theApp, minimizeApp}}/>
+    <div id="music" className="application">
+      <Toolbar theApp={Music}/>
       <div>{Music.name}</div>
       <div>{Music.version}</div>
     </div>
