@@ -2,6 +2,8 @@ import "./style.css"
 
 import AppIcon from "../../components/app-icon"
 import Toolbar from "../../components/app-tool-bar"
+import zoom from "../../components/app-zoom"
+import { useEffect } from "react"
 
 let Music = {
   name: "music",
@@ -17,6 +19,9 @@ function MusicIcon(props) {
 }
 
 function MusicUI(props) {
+  useEffect(() => {
+    zoom(Music.name)
+  })
   return (
     <div id="music" className="application">
       <Toolbar theApp={Music}/>

@@ -30,3 +30,7 @@ ul, li {
 .minimize {
   visibility: hidden;
 }
+/* 应用窗口可缩放 */
+.application {
+  position: relative;
+}

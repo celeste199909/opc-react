@@ -1,6 +1,7 @@
 import "./style.css"
 
 import { useSelector } from "react-redux"
+import ContextMenu from "../desktop-menu"
 
 function Desktop() {
 
@@ -22,11 +23,12 @@ function Desktop() {
             <App.Icon key={App.Icon.toString()}/>
           )
         })}
-      {shouldShowUIApps.map( App => {
-          return (
-            <App.UI key={App.UI.toString()}/>
-          )
+        {shouldShowUIApps.map( App => {
+            return (
+              <App.UI key={App.UI.toString()}/>
+            )
         })}
+        <ContextMenu/>
     </div>
   )
 }

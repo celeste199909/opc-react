@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.css"
 
 import AppIcon from "../../components/app-icon"
 import Toolbar from "../../components/app-tool-bar"
+import zoom from "../../components/app-zoom"
 
 let Setting = {
   name: "setting",
@@ -18,6 +19,11 @@ function SettingIcon(props) {
 }
 
 function SettingUI(props) {
+
+  useEffect(() => {
+    zoom(Setting.name)
+  })
+
   return (
     <div id="setting" className="application">
       <Toolbar theApp={Setting}/>
