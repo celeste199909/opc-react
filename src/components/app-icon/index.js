@@ -1,57 +1,68 @@
 import "./style.css"
-import {useSelector, useDispatch} from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 
-function AppIcon(props) {
+import actions from "../../store/actions"
+import dndIcon from "../../libs/dndIcon"
 
-  let {theApp} = props
-  let openedApps = useSelector( state => state.openedApps)
+function AppIcon (props) {
+
+  let { theApp } = props
+  let openedApps = useSelector(state => state.openedApps)
   let minimizeApps = useSelector(state => state.minimizeApps)
-
-  // console.log(minimizeApps);
 
   let dispatch = useDispatch()
 
   // 是否已经打开
-  let theAppIsOpened = openedApps.some( o => {
+  let theAppIsOpened = openedApps.some(o => {
     return o.name === theApp.name;
   })
   // 是否已经最小化
-  let theAppIsMini = minimizeApps.some( o => {
+  let theAppIsMini = minimizeApps.some(o => {
     return o.name === theApp.name;
   })
-
-  function handleClick() {
+  // 打开应用
+  // 1.不在桌面上（在底部状态栏）单击打开应用
+  function handleCilick (e) {
+    if (e.target.parentNode.parentNode.id === "desktop") {
+      return
+    }
     if (!theAppIsOpened) {
-      openApp(theApp)
+      dispatch(actions.openApp(theApp))
     } else {
       // 如果已经打开，则显示|隐藏
       MiniOrRestoreApp(theApp)
     }
   }
-
-  function openApp(theApp) {
-    dispatch({
-      type: "ADD_APP",
-      app: theApp
-    })
-  }
-
-  function MiniOrRestoreApp(theApp) {
-    if (!theAppIsMini) {
-      dispatch({
-        type: "MINIMIZE_APP",
-        app: theApp
-      })
+  // 2.在桌面上双击击打开应用
+  function handleDoubleCilick (e) {
+    if (e.target.parentNode.parentNode.id !== "desktop") {
+      return
+    }
+    if (!theAppIsOpened) {
+      dispatch(actions.openApp(theApp))
     } else {
-      dispatch({
-        type: "RESTORE_APP",
-        app: theApp
-      })
+      // 如果已经打开，则显示|隐藏
+      MiniOrRestoreApp(theApp)
+    }
+  }
+  // 处理应用图标拖动
+
+
+  function MiniOrRestoreApp (theApp) {
+    if (!theAppIsMini) {
+      dispatch(actions.minimizeApp(theApp))
+    } else {
+      dispatch(actions.restoreApp(theApp))
     }
   }
 
   return (
-    <div className={"app-icon " + theApp.name} onClick={handleClick}>
+    <div className={"app-icon " + theApp.name}
+      onClick={handleCilick}
+      onDoubleClick={handleDoubleCilick}
+      onMouseDown={dndIcon}
+      draggable="true"
+    >
       {theApp.name}
     </div>
   )

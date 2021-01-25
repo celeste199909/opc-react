@@ -1,9 +1,9 @@
-import {createStore} from "redux"
+import { createStore } from "redux"
 
 import Music from "../applications/music"
 import Setting from "../applications/setting"
 
-function reducer(state = {
+function reducer (state = {
   allApps: [Setting, Music],
   openedApps: [],
   minimizeApps: [],
@@ -17,7 +17,7 @@ function reducer(state = {
     case "DELETE_APP":
       return {
         ...state,
-        openedApps: state.openedApps.filter( o => o.name !== action.app.name),
+        openedApps: state.openedApps.filter(o => o.name !== action.app.name),
       }
     case "MINIMIZE_APP":
       return {
@@ -27,7 +27,7 @@ function reducer(state = {
     case "RESTORE_APP":
       return {
         ...state,
-        minimizeApps: state.minimizeApps.filter( o => o.name !== action.app.name),
+        minimizeApps: state.minimizeApps.filter(o => o.name !== action.app.name),
       }
     default:
       return {

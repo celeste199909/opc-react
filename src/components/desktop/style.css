@@ -1,5 +1,16 @@
 #desktop {
   width: 100%;
   height: 100%;
+  display: grid;
+  /* grid-template-columns: repeat(10, 10%);
+grid-template-rows: repeat(5, 20%); */
+  grid-template-columns: repeat(auto-fill, 5rem);
+  grid-template-rows: repeat(auto-fill, 5rem);
   position: relative;
+}
+
+#desktop .desktop-droppable {
+  /* width: 4rem;
+  height: 4rem; */
+  border: 1px dotted blue;
 }
