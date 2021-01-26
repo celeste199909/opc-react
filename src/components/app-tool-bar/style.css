@@ -1,13 +1,39 @@
 /* 窗口工具条 */
 .tools-bar {
+  height: 30px;
+  padding: 0 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
+
 .tools-bar .window-operation {
   display: flex;
 }
-.tools-bar .window-operation > div {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #000;
+
+/* 操作按钮 */
+.tools-bar .window-operation .btn {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+/* 最小化按钮 */
+.tools-bar .window-operation .minimize-window {
+  color: rgb(22, 155, 243);
+  background-color: rgb(22, 155, 243);
+}
+
+/* 关闭按钮 */
+.tools-bar .window-operation .close-window {
+  color: red;
+  background-color: red;
+}
+
+.tools-bar .window-operation .btn:hover {
+  color: rgba(29, 29, 29, 0.836);
 }

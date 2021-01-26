@@ -5,20 +5,25 @@ import AppIcon from "../../components/app-icon"
 import Toolbar from "../../components/app-tool-bar"
 import zoom from "../../components/app-zoom"
 
+import iconImg from "../../images/applications/setting.png"
+
+
 let Setting = {
   name: "setting",
+  cname: "设置",
   version: "1.0.0",
+  iconImg,
   Icon: SettingIcon,
   UI: SettingUI
 }
 
-function SettingIcon(props) {
+function SettingIcon (props) {
   return (
-    <AppIcon theApp={Setting}/>
+    <AppIcon theApp={Setting} />
   );
 }
 
-function SettingUI(props) {
+function SettingUI (props) {
 
   useEffect(() => {
     zoom(Setting.name)
@@ -26,7 +31,7 @@ function SettingUI(props) {
 
   return (
     <div id="setting" className="application">
-      <Toolbar theApp={Setting}/>
+      <Toolbar theApp={Setting} />
     </div>
   );
 }

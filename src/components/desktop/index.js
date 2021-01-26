@@ -25,17 +25,14 @@ function Desktop () {
     count = count - allApps.length
     // console.log(count);
     setGirdCount(Array.from({ length: count }))
-  }, [allApps]);
+  }, [allApps])
   // 窗口大小
-
-
   return (
     <div id="desktop">
       {allApps.map(App => {
         return (
           <div className="desktop-droppable"
             key={App.Icon.toString()}
-            dropable="true"
           >
             <App.Icon />
           </div>

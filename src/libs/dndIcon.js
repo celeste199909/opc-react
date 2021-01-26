@@ -1,11 +1,13 @@
 export default function dndIcon (e) {
-
+  // e.stopPropagation()
   let env = e.target.parentNode.parentNode.id
+  console.log(env);
   let droppables = document.querySelectorAll('.desktop-droppable');
   if (env === "desktop") {
     e.target.setAttribute("draggable", true)
-  } else if (env === "status-bar") {
+  } else {
     e.target.setAttribute("draggable", false)
+    return
   }
   let AppIcon = e.target
 
@@ -40,6 +42,9 @@ export default function dndIcon (e) {
     e.preventDefault();
   }
   function dragDrop (e) {
-    this.append(AppIcon);
+    // 当 drappable 中没有内容时才添加
+    if (!this.innerHTML) {
+      this.append(AppIcon);
+    }
   }
 }

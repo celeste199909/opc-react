@@ -5,7 +5,6 @@ import actions from "../../store/actions"
 import dndIcon from "../../libs/dndIcon"
 
 function AppIcon (props) {
-
   let { theApp } = props
   let openedApps = useSelector(state => state.openedApps)
   let minimizeApps = useSelector(state => state.minimizeApps)
@@ -57,14 +56,21 @@ function AppIcon (props) {
   }
 
   return (
-    <div className={"app-icon " + theApp.name}
+    // <div className={"app-icon " + theApp.name}
+    //   onClick={handleCilick}
+    //   onDoubleClick={handleDoubleCilick}
+    //   onMouseDown={dndIcon}
+    //   draggable={true}
+    // >
+    //   <img src={settingIcon} alt={theApp.name} draggable={false} />
+    // </div>
+    <img
+      className={"app-icon " + theApp.name}
       onClick={handleCilick}
       onDoubleClick={handleDoubleCilick}
       onMouseDown={dndIcon}
-      draggable="true"
-    >
-      {theApp.name}
-    </div>
+      draggable={true}
+      src={theApp.iconImg} alt={theApp.cname} />
   )
 }
 
