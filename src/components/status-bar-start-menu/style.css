@@ -1,0 +1,155 @@
+/* 开始菜单 */
+#start-menu {
+  position: relative;
+  flex: 0 0 40px;
+}
+
+#start-menu .start-btn {
+  width: 40px;
+  height: 40px;
+}
+
+#start-menu .start-btn:hover {
+  background-color: rgba(163, 163, 163, 0.349);
+}
+
+#start-menu .start-btn img {
+  width: 100%;
+  transform: scale(0.8);
+}
+
+#start-menu #start-menu-content {
+  position: absolute;
+  /* bottom: -440px; */
+  /* bottom: 40px; */
+  width: 300px;
+  height: 400px;
+  min-width: 300px;
+  min-height: 400px;
+  background-color: rgba(65, 65, 65, 0.911);
+  backdrop-filter: blur(5px);
+  /* transition: all ease 1s; */
+}
+
+@keyframes showmenu {
+  0% {
+    bottom: -440px;
+    opacity: 0;
+  }
+
+  100% {
+    bottom: 40px;
+    opacity: 1;
+  }
+}
+
+@keyframes hidemenu {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+#start-menu-content.unactive {
+  /* animation: hidemenu;
+animation-duration: 0.4s;
+animation-fill-mode: both; */
+}
+
+#start-menu-content.active {
+  animation: showmenu;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+}
+
+#start-menu-content .top-side {
+  background-color: rgba(121, 121, 121, 0.349);
+}
+
+#start-menu-content .top-side:hover {
+  height: 5px;
+  background-color: rgba(56, 165, 255, 0.349);
+}
+
+#start-menu-content .right-side {
+  background-color: rgba(121, 121, 121, 0.349);
+}
+
+#start-menu-content .right-side:hover {
+  width: 5px;
+  background-color: rgba(56, 165, 255, 0.349);
+}
+
+/* 菜单内容 */
+#start-menu-content {
+  /* display: flex; */
+  min-width: 400px;
+}
+
+#start-menu-content .menu-left {
+  /* flex: 0 0 40px; */
+  float: left;
+  width: 40px;
+  height: 100%;
+  background-color: rgb(41, 41, 41);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#start-menu-content .menu-left>div {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+#start-menu-content .menu-left>div i {
+  font-size: 20px;
+}
+
+#start-menu-content .menu-left>div:hover {
+  background-color: rgba(163, 163, 163, 0.349);
+}
+
+#start-menu-content .menu-right {
+  box-sizing: border-box;
+  padding: 20px;
+  /* flex: 1; */
+  float: left;
+  width: calc(100% - 40px);
+  height: 100%;
+
+  /* height: 100%; */
+  /* background-color: rgb(109, 107, 105); */
+  background-color: rgba(163, 163, 163, 0.349);
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+}
+
+#start-menu-content .menu-right .touxiang {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#start-menu-content .menu-right .touxiang img {
+  width: 100%;
+  height: 100%;
+}
+
+#start-menu-content .menu-right .username {
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+}
+
+#start-menu-content .menu-right article {
+  line-height: 30px;
+}

@@ -17,17 +17,26 @@ export default function ContextMenu (params) {
   // 根据点击目标不同显示不同功能的菜单
   let [contextMenuList, setContextMenuList] = useState([]);
 
+
   useEffect(() => {
+
 
     document.addEventListener("contextmenu", (e) => {
       // 阻止默认事件
       e.preventDefault()
     })
+    // 给web-pc添加事件：单击隐藏右键菜单
+    let webpc = document.querySelector("#web-pc")
+    webpc.addEventListener("click", (e) => {
+      setShowContextMenu(false)
+    })
 
     let desktop = document.querySelector("#desktop")
 
     desktop.addEventListener("contextmenu", handleContextMenu)
+    // 创建 上下文菜单 （功能 位置）
     function handleContextMenu (e) {
+
       // console.log(typeof e.target.className);
       let target = e.target
       if (target.id === "desktop" || target.className === "desktop-droppable") {

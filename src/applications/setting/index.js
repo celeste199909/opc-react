@@ -26,7 +26,7 @@ function SettingIcon (props) {
 function SettingUI (props) {
 
   useEffect(() => {
-    zoom(Setting.name)
+    zoom(Setting.name, { right: true, bottom: true })
   })
 
   return (

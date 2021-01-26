@@ -46,24 +46,18 @@ function AppIcon (props) {
   }
   // 处理应用图标拖动
 
-
   function MiniOrRestoreApp (theApp) {
     if (!theAppIsMini) {
       dispatch(actions.minimizeApp(theApp))
+      document.querySelector(`#${theApp.name}`).classList.add("minimized-app")
+
     } else {
       dispatch(actions.restoreApp(theApp))
+      document.querySelector(`#${theApp.name}`).className = "application normal"
     }
   }
 
   return (
-    // <div className={"app-icon " + theApp.name}
-    //   onClick={handleCilick}
-    //   onDoubleClick={handleDoubleCilick}
-    //   onMouseDown={dndIcon}
-    //   draggable={true}
-    // >
-    //   <img src={settingIcon} alt={theApp.name} draggable={false} />
-    // </div>
     <img
       className={"app-icon " + theApp.name}
       onClick={handleCilick}

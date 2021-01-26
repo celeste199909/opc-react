@@ -24,8 +24,9 @@ function MusicIcon (props) {
 
 function MusicUI (props) {
   useEffect(() => {
-    zoom(Music.name)
-  })
+    zoom(Music.name, { right: true, bottom: true })
+    // 只在挂载是添加一次缩放控价
+  }, [])
   return (
     <div id="music" className="application">
       <Toolbar theApp={Music} />

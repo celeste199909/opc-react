@@ -1,7 +1,7 @@
 export default function dndIcon (e) {
   // e.stopPropagation()
   let env = e.target.parentNode.parentNode.id
-  console.log(env);
+  // console.log(env);
   let droppables = document.querySelectorAll('.desktop-droppable');
   if (env === "desktop") {
     e.target.setAttribute("draggable", true)
@@ -14,7 +14,7 @@ export default function dndIcon (e) {
   AppIcon.addEventListener('dragstart', dragStart);
   AppIcon.addEventListener('dragend', dragEnd);
   function dragStart () {
-    // this.className += ' dragging';
+    this.className += ' dragging';
     // setTimeout(() => {
     //   // this.className = 'invisible';
     // }, 0);

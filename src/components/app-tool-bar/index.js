@@ -13,6 +13,7 @@ function ToolsBar (props) {
   }
 
   function minimizeWindow () {
+    document.querySelector(`#${theApp.name}`).classList.add("minimized-app")
     dispatch({
       type: "MINIMIZE_APP",
       app: theApp

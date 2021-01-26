@@ -10,11 +10,17 @@ function reducer (state = {
 }, action) {
   switch (action.type) {
     case "ADD_APP":
+      // 打开的时候设置旋转动画
+      let iconOpen = document.querySelector(`.${action.app.name}`)
+      iconOpen.setAttribute("style", "animation: iconRotate 2.5s")
       return {
         ...state,
         openedApps: [...state.openedApps, action.app],
       }
     case "DELETE_APP":
+      // 关闭的时候删除旋转动画
+      let iconClose = document.querySelector(`.${action.app.name}`)
+      iconClose.setAttribute("style", "animation: ''")
       return {
         ...state,
         openedApps: state.openedApps.filter(o => o.name !== action.app.name),
@@ -25,6 +31,8 @@ function reducer (state = {
         minimizeApps: [...state.minimizeApps, action.app],
       }
     case "RESTORE_APP":
+      // console.log(action.app);
+
       return {
         ...state,
         minimizeApps: state.minimizeApps.filter(o => o.name !== action.app.name),

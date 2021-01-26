@@ -11,86 +11,16 @@
   align-items: center;
 }
 
-/* 开始菜单 */
-#start-menu {
-  position: relative;
-}
-
-#start-menu .start-btn {
-  width: 40px;
-  height: 40px;
-}
-
-#start-menu .start-btn:hover {
-  background-color: rgba(163, 163, 163, 0.349);
-}
-
-#start-menu .start-btn img {
-  width: 100%;
-  transform: scale(0.8);
-}
-
-#start-menu .list {
-  position: absolute;
-  bottom: 40px;
-  /* width: 300px;
-  height: 400px; */
-  background-color: rgba(65, 65, 65, 0.911);
-  backdrop-filter: blur(5px);
-}
-
-#start-menu .list.unactive {
-  animation: hidelist;
-  animation-duration: 0.6s;
-  animation-fill-mode: forwards;
-  /* display: none; */
-  /* visibility: hidden; */
-}
-
-#start-menu .list.active {
-  animation: showlist;
-  animation-duration: 0.4s;
-  animation-fill-mode: forwards;
-  /* display: block; */
-}
-
-@keyframes showlist {
-  0% {
-    width: 0;
-    height: 0;
-  }
-
-  100% {
-    width: 300px;
-    height: 400px;
-  }
-}
-
-@keyframes hidelist {
-  0% {
-    opacity: 1;
-    width: 300px;
-    height: 400px;
-  }
-
-  100% {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-}
-
 /* 以打开app列表 */
 #opened-apps-list {
   display: flex;
   height: 100%;
+  flex: 1 0 auto;
 }
 
 #opened-apps-list li {
   height: 40px;
   width: 40px;
-  /* text-align: center;
-  line-height: 40px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,10 +35,3 @@
 #opened-apps-list li:hover {
   background-color: rgba(163, 163, 163, 0.349);
 }
-
-#opened-apps-list li img {
-  /* transform: scale(0.6); */
-}
-
-/* #status-bar img {
-} */

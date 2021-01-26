@@ -1,22 +1,44 @@
-.bottom {
+.top-side {
   width: 100%;
   height: 1px;
   /* background-color: red; */
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
-  cursor: s-resize;
+  cursor: ns-resize;
 }
 
-.right {
+.right-side {
   width: 1px;
   height: 100%;
   /* background-color: red; */
   position: absolute;
   top: 0;
   right: 0;
-  cursor: e-resize;
+  cursor: ew-resize;
 }
+
+.bottom-side {
+  width: 100%;
+  height: 1px;
+  /* background-color: red; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  cursor: ns-resize;
+}
+
+.left-side {
+  width: 1px;
+  height: 100%;
+  /* background-color: red; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: ew-resize;
+}
+
+
 
 .right-bottm {
   width: 5px;

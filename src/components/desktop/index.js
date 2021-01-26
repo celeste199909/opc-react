@@ -1,22 +1,21 @@
 import "./style.css"
 import { useEffect, useState } from 'react';
 import { useSelector } from "react-redux"
-import ContextMenu from "../desktop-menu"
+import ContextMenu from "../context-menu"
 
 function Desktop () {
 
   let allApps = useSelector(state => state.allApps)
   // console.log(allApps);
   let openedApps = useSelector(state => state.openedApps)
-  let minimizeApps = useSelector(state => state.minimizeApps)
 
   let [girdCount, setGirdCount] = useState([]);
 
   // 应该显示 UI 的 app ：openedApps - minimizeApps
 
-  let shouldShowUIApps = openedApps.filter((o) => {
-    return !minimizeApps.includes(o)
-  })
+  // let shouldShowUIApps = openedApps.filter((o) => {
+  //   return !minimizeApps.includes(o)
+  // })
   useEffect(() => {
     let desktop = document.querySelector("#desktop")
     let { width, height } = desktop.getBoundingClientRect()
@@ -44,7 +43,7 @@ function Desktop () {
       })}
       {}
       {/* 应用窗口 */}
-      {shouldShowUIApps.map(App => {
+      {openedApps.map(App => {
         return (
           <App.UI key={App.UI.toString()} />
         )

@@ -1,13 +1,38 @@
 .app-icon {
   width: 50px;
   height: 50px;
-  /* border-radius: 25px; */
-  /* background: skyblue; */
   overflow: hidden;
+  animation: showicon;
+  animation-duration: 0.1s;
+}
+
+@keyframes showicon {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .app-icon img {
   width: 50px;
   height: 50px;
   user-select: none;
+}
+
+.app-icon.setting:hover,
+.app-icon.music:hover {
+  /* animation: iconRotate 2.5s; */
+}
+
+@keyframes iconRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

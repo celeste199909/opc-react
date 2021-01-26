@@ -1,0 +1,10 @@
+#status-bar-time {
+  height: 100%;
+  flex: 0 0 200px;
+  line-height: 40px;
+  text-align: center;
+}
+
+#status-bar-time:hover {
+  background-color: rgba(163, 163, 163, 0.349);
+}

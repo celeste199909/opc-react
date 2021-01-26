@@ -2,7 +2,8 @@ import Desktop from "./components/desktop"
 import StatusBar from "./components/status-bar"
 import "./style/reset.css"
 
-function WebPC() {
+function WebPC () {
+
   return (
     <div id="web-pc">
       <Desktop />

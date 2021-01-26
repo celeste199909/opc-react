@@ -6,6 +6,7 @@
   border-radius: 4px;
   color: #000;
   display: none;
+  min-width: 100px;
 }
 
 #context-menu.active {
