@@ -1,11 +1,221 @@
 #setting {
+  box-sizing: border-box;
   position: absolute;
-  width: 600px;
-  height: 400px;
-  min-width: 100px;
-  min-height: 50px;
-  top: 120px;
-  left: 120px;
-  /* background: rgba(0, 0, 0, 0.8); */
-  /* z-index: 100; */
+  width: calc(46rem + 2px);
+  height: 500px;
+  min-width: 18rem;
+  min-height: calc(14rem + 40px);
+  top: calc(50% - 250px);
+  left: calc(50% - 350px);
+  /* 设置 的窗口颜色 */
+  background-color: rgba(246, 246, 246, 0.8);
+  /* backdrop-filter: blur(5px); */
 }
+
+#setting .setting-list {
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100% - 40px);
+  padding: 2rem;
+  /* background-color: bisque; */
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin: 0 auto;
+  /* position: relative; */
+}
+
+#setting .hide-setting-list {
+  display: none;
+}
+
+#setting .setting-list .setting-item {
+  box-sizing: border-box;
+  width: 10rem;
+  height: 6rem;
+  margin: 2rem;
+  border-radius: 8px;
+  /* 设置的选项 的背景颜色 */
+  background-color: rgba(255, 255, 255, 0.315);
+  /* backdrop-filter: blur(5px); */
+  border: 1px solid rgba(255, 255, 255, 0);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#setting .setting-item img.icon {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+#setting .setting-list .setting-item:hover {
+  border: 1px solid #327dfb;
+}
+
+/* 每一个设置选项的详情 */
+#setting .setting-details {
+  font-size: 12px;
+  box-sizing: border-box;
+  width: calc(100%);
+  height: calc(100% - 40px);
+  padding: 20px;
+  top: 0;
+  left: 0;
+  position: relative;
+  color: #000;
+}
+
+.setting-details .setting-breadcrumb div {
+  display: inline-block;
+  margin: 0 0 10px;
+  /* text-decoration: underline; */
+  color: #327dfb;
+  border-bottom: 1px solid rgb(90, 90, 90, 0);
+}
+
+.setting-details .setting-breadcrumb div:hover {
+  border-bottom: 1px solid #327dfb;
+}
+
+/* 1. 账户 */
+#acount-setting {
+  overflow-y: scroll;
+  width: 100%;
+  height: calc(100% - 30px);
+  padding: 0 20px;
+  font-size: 12px;
+}
+
+.acount-part {
+  margin-bottom: 20px;
+}
+
+/* 头像部分 */
+#acount-avatar-part {}
+
+.acount-title {
+  color: #333;
+  margin: 10px 0;
+}
+
+#acount-avatar-part .acount-description {
+  margin: 10px 0;
+  color: #999;
+}
+
+#acount-avatar-part .select-avatar {
+  box-sizing: border-box;
+  padding: 20px;
+  max-width: 600px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #999;
+  overflow-y: scroll;
+  border-radius: 8px;
+}
+
+#acount-avatar-part .select-avatar .avatar-item {
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+#acount-avatar-part .select-avatar .avatar-item:hover {
+  border: 1px solid #327dfb;
+}
+
+#acount-avatar-part .select-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 用户名部分 */
+#acount-username-part {
+  height: 100px;
+}
+
+#acount-username-part .username-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#acount-username-part input {
+  font-size: 12px;
+  width: 200px;
+  height: 25px;
+  margin: 20px 0;
+  margin-right: 20px;
+  padding: 0 1rem;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgb(122, 122, 122);
+  background-color: rgba(190, 190, 190, 0);
+}
+
+#acount-username-part button {
+  margin: 20px 0;
+  width: 60px;
+  height: 25px;
+  background-color: rgb(241, 241, 241);
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  color: #333;
+}
+
+#acount-username-part button:hover {
+  border: 1px solid #327dfb;
+}
+
+/* 外观 appearance */
+/* .appearance {
+  padding: 20px 80px;
+}
+
+.appearance>div {
+  margin: 20px 0;
+}
+
+.appearance .wallpaper {
+  display: flex;
+  flex-direction: column;
+}
+
+.appearance .wallpaper div {
+  margin: 10px 0;
+}
+
+.appearance .wallpaper img {
+  width: 120px;
+  height: 70px;
+  border-radius: 4px;
+  margin-right: 20px;
+  border: 2px solid #ffffff00;
+}
+
+.appearance .wallpaper img:hover,
+.appearance .wallpaper img.selected {
+  border: 2px solid #327dfb;
+}
+
+.appearance>div:nth-child(2),
+.appearance>div:nth-child(3),
+.appearance>div:nth-child(4) {
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.appearance>div:nth-child(4) span {
+  margin-left: 20px;
+} */

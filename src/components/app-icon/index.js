@@ -21,7 +21,7 @@ function AppIcon (props) {
   })
   // 打开应用
   // 1.不在桌面上（在底部状态栏）单击打开应用
-  function handleCilick (e) {
+  function handleCilickAppIcon (e) {
     if (e.target.parentNode.parentNode.id === "desktop") {
       return
     }
@@ -60,7 +60,7 @@ function AppIcon (props) {
   return (
     <img
       className={"app-icon " + theApp.name}
-      onClick={handleCilick}
+      onClick={handleCilickAppIcon}
       onDoubleClick={handleDoubleCilick}
       onMouseDown={dndIcon}
       draggable={true}
