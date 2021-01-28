@@ -1,5 +1,5 @@
 import "./style.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 
 // import zoom from "../app-zoom"
@@ -15,6 +15,18 @@ export default function StartMenu () {
   // 用户信息
   let avatar = useSelector(state => state.acountInfo.avatar)
   let username = useSelector(state => state.acountInfo.username)
+  useEffect(() => {
+    let webpc = document.querySelector("#web-pc")
+    function hideStartMenu () {
+      setShowStartMenu(false)
+    }
+
+    webpc.addEventListener("click", hideStartMenu)
+    return function cleanup () {
+      webpc.removeEventListener("click", hideStartMenu)
+    };
+  }, []);
+
 
   return (
     <div id="start-menu">

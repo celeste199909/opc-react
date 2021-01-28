@@ -8,6 +8,8 @@
  */
 import { useEffect, useState } from "react";
 import "./style.css"
+import System from "../../system-api"
+
 
 export default function ContextMenu (params) {
   // 菜单显示的状态
@@ -20,23 +22,23 @@ export default function ContextMenu (params) {
 
   useEffect(() => {
 
+    let webpc = document.querySelector("#web-pc")
+    let desktop = document.querySelector("#desktop")
 
     document.addEventListener("contextmenu", (e) => {
       // 阻止默认事件
       e.preventDefault()
     })
     // 给web-pc添加事件：单击隐藏右键菜单
-    let webpc = document.querySelector("#web-pc")
-    webpc.addEventListener("click", (e) => {
-      setShowContextMenu(false)
-    })
+    webpc.addEventListener("click", hideContextMenu)
 
-    let desktop = document.querySelector("#desktop")
+    function hideContextMenu () {
+      setShowContextMenu(false)
+    }
 
     desktop.addEventListener("contextmenu", handleContextMenu)
     // 创建 上下文菜单 （功能 位置）
     function handleContextMenu (e) {
-
       // console.log(typeof e.target.className);
       let target = e.target
       if (target.id === "desktop" || target.className === "desktop-droppable") {
@@ -58,6 +60,7 @@ export default function ContextMenu (params) {
     // 在这里清除监听事件
     return function cleanup () {
       desktop.removeEventListener("contextmenu", handleContextMenu)
+      webpc.removeEventListener("click", hideContextMenu)
     };
   })
 
@@ -67,9 +70,11 @@ export default function ContextMenu (params) {
       style={style}
     >
       <ul>
-        {contextMenuList.map((o) => {
+        {/* {contextMenuList.map((o) => {
           return <li key={o}>{o}</li>
-        })}
+        })} */}
+        <li onClick={System.StatusBar.hide}>隐藏状态栏</li>
+        <li onClick={System.StatusBar.show}>显示状态栏</li>
       </ul>
     </div>
   )

@@ -9,7 +9,38 @@
   backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
-  /* background-color: rgba(246, 246, 246, 0.8); */
+}
+
+/* 显示状态栏 */
+#status-bar.show-status {
+  animation: showStatusBar 1s;
+  animation-fill-mode: forwards;
+}
+
+/* 隐藏状态栏 */
+#status-bar.hide-status {
+  animation: hideStatusBar 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hideStatusBar {
+  0% {
+    bottom: 0;
+  }
+
+  100% {
+    bottom: -40px;
+  }
+}
+
+@keyframes showStatusBar {
+  0% {
+    bottom: -40px;
+  }
+
+  100% {
+    bottom: 0;
+  }
 }
 
 /* 以打开app列表 */

@@ -6,7 +6,7 @@
   grid-template-columns: repeat(auto-fill, 5rem);
   grid-template-rows: repeat(auto-fill, 5rem);
   position: relative;
-  background: url(../../images/wallpapers/wallpaper3.jpg);
+  background-image: url(../../images/wallpapers/wallpaper3.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   user-select: none;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import System from "../../system-api"
 
 import "./style.css"
 
@@ -188,6 +189,11 @@ function AcountSetting () {
 }
 // 2. 外观 appearance
 function AppearanceSetting () {
+  let wallpapers = [wallpaper1, wallpaper2, wallpaper3]
+  function handleChangeWallpaper (wallpaper) {
+    console.log(wallpaper);
+    document.querySelector("#desktop").style.backgroundImage = `url(${wallpaper})`
+  }
   return (
     <div id="appearance-setting">
       <div id="theme-part" className="theme-part">
@@ -207,9 +213,16 @@ function AppearanceSetting () {
         <div className="setting-title">桌面壁纸</div>
         <div className="setting-description">选择一张图片作为桌面壁纸</div>
         <div className="select-wallpaper-wrapper">
-          <div className="wallpaper-item"><img src={wallpaper1} alt="wallpaper" /></div>
-          <div className="wallpaper-item"><img src={wallpaper2} alt="wallpaper" /></div>
-          <div className="wallpaper-item"><img src={wallpaper3} alt="wallpaper" /></div>
+          {wallpapers.map((wallpaper, index) => {
+            return (
+              <div className="wallpaper-item"
+                key={"wallpaper" + index}
+                onClick={handleChangeWallpaper.bind(this, wallpaper)}
+              >
+                <img src={wallpaper} alt="wallpaper" />
+              </div>
+            )
+          })}
         </div>
       </div>
       <div id="status-bar-part" className="theme-part">
