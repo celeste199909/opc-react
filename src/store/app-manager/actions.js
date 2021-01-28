@@ -18,7 +18,20 @@ function closeApp (state, action) {
     openedApps: state.openedApps.filter(o => o.name !== action.app.name),
   }
 }
-
+// 窗口前置
+function prepositionApp (state, action) {
+  let newArr = Array.from(state.openedApps)
+  state.openedApps.forEach((element, index) => {
+    if (element.name === action.appName) {
+      let item = newArr.splice(index, 1)[0]
+      newArr.push(item)
+    }
+  });
+  return {
+    ...state,
+    openedApps: newArr
+  }
+}
 function minimizeApp (state, action) {
   return {
     ...state,
@@ -27,6 +40,13 @@ function minimizeApp (state, action) {
 }
 
 function restoreApp (state, action) {
+  // let newArr = Array.from(state.openedApps)
+  // state.openedApps.forEach((element, index) => {
+  //   if (element.name === action.app.name) {
+  //     let item = newArr.splice(index, 1)[0]
+  //     newArr.push(item)
+  //   }
+  // });
   return {
     ...state,
     minimizeApps: state.minimizeApps.filter(o => o.name !== action.app.name),
@@ -35,5 +55,5 @@ function restoreApp (state, action) {
 
 
 export {
-  openApp, closeApp, minimizeApp, restoreApp
+  openApp, closeApp, prepositionApp, minimizeApp, restoreApp
 }

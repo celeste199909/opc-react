@@ -45,16 +45,13 @@
 
 }
 
-
-
-.right-bottm {
-  width: 5px;
-  height: 5px;
+.right-bottom-corner {
+  width: 4px;
+  height: 4px;
   /* background-color: blue; */
   position: absolute;
   right: 0;
   bottom: 0;
-  cursor: se-resize;
+  cursor: nwse-resize;
   z-index: 10;
-
 }

@@ -3,19 +3,24 @@ import "./style.css"
 
 import AppIcon from "../../components/app-icon"
 import Toolbar from "../../components/app-tool-bar"
-// import zoom from "../../components/app-zoom"
+// 自定义hooks
 import useWindowZoom from "../../customhooks/window-zoom"
+import usePrepositionWindow from "../../customhooks/preposition-window"
 
 import iconImg from "../../images/applications/setting.png"
 
 import acountIcon from "../../images/applications/acount.png"
 import appearanceIcon from "../../images/applications/appearance.png"
-import languageIcon from "../../images/applications/language.png"
+import systemIcon from "../../images/applications/system.png"
 import aboutIcon from "../../images/applications/about.png"
 import helpIcon from "../../images/applications/help.png"
 
 // 头像
 import avatar from "../../images/touxiang.jpg"
+// 壁纸
+import wallpaper1 from "../../images/wallpapers/wallpaper1.jpg"
+import wallpaper2 from "../../images/wallpapers/wallpaper2.jpg"
+import wallpaper3 from "../../images/wallpapers/wallpaper3.jpg"
 
 let Setting = {
   name: "setting",
@@ -34,14 +39,15 @@ function SettingIcon (props) {
 
 function SettingUI (props) {
 
-  useWindowZoom(Setting.name, { right: true, bottom: true })
+  useWindowZoom(Setting.name, { right: true, bottom: true, rightBottom: true })
+  usePrepositionWindow(Setting.name)
 
   const [settingList] = useState([
     { name: "acount", cname: "账户", icon: acountIcon },
     { name: "appearance", cname: "外观", icon: appearanceIcon },
-    { name: "language", cname: "语言", icon: languageIcon },
+    { name: "system", cname: "系统", icon: systemIcon },
     { name: "about", cname: "关于", icon: aboutIcon },
-    { name: "help", cname: "关于", icon: helpIcon },
+    { name: "help", cname: "帮助", icon: helpIcon },
   ])
 
   const [settingDetails, setSettingDetails] = useState(null)
@@ -55,12 +61,8 @@ function SettingUI (props) {
     setSettingDetails(null)
   }
 
-  // useEffect(() => {
-  //   // zoom()
-  // }, [])
-
   return (
-    <div id="setting" className="application">
+    <div id="setting" className="application" >
       <Toolbar theApp={Setting} />
       <div className="setting-list">
         {settingList.map((settingItem, index) => {
@@ -102,8 +104,8 @@ function SettingDetailsPage (props) {
     case "appearance":
       CurrentDetailsPage = AppearanceSetting
       break;
-    case "language":
-      CurrentDetailsPage = LanguageSetting
+    case "system":
+      CurrentDetailsPage = SystemSetting
       break;
     case "about":
       CurrentDetailsPage = AboutSetting
@@ -130,8 +132,8 @@ function AcountSetting () {
   return (
     <div id="acount-setting">
       <div id="acount-avatar-part" className="acount-part">
-        <div className="acount-title">头像：</div>
-        <div className="acount-description">请从下面预设图片中挑选一个你喜欢的来作为你的头像吧，头像会显示在开始菜单中</div>
+        <div className="setting-title">头像：</div>
+        <div className="setting-description">请从下面预设图片中挑选一个你喜欢的来作为你的头像吧，头像会显示在开始菜单中</div>
         <div className="select-avatar">
           <div className="avatar-item"><img src={avatar} alt="avatar" /></div>
           <div className="avatar-item"><img src={avatar} alt="avatar" /></div>
@@ -141,7 +143,7 @@ function AcountSetting () {
         </div>
       </div>
       <div id="acount-username-part" className="acount-part">
-        <div className="acount-title">用户名：</div>
+        <div className="setting-title">用户名：</div>
         <div className="username-wrapper">
           <input type="text" placeholder="请输入用户名"
             value={username} onChange={handleOnchange}></input>
@@ -156,27 +158,67 @@ function AppearanceSetting () {
   return (
     <div id="appearance-setting">
       <div id="theme-part" className="theme-part">
-        <div className="appearance-title">主题</div>
-        <div>
-          <div>明亮</div>
-          <div>夜间</div>
+        <div className="setting-title">主题</div>
+        <div className="select-theme-wrapper">
+          <div className="light-theme">
+            <input type="radio" name="theme" id="light-theme" />
+            <label htmlFor="light-theme">明亮</label>
+          </div>
+          <div className="dark-theme">
+            <input type="radio" name="theme" id="dark-theme" />
+            <label htmlFor="dark-theme">夜间</label>
+          </div>
         </div>
       </div>
-      <div id="status-part" className="theme-part">
-        <div className="appearance-title">状态栏</div>
-        <div>
-          <div>始终显示</div>
-          <div>始终隐藏</div>
-          <div>仅在有应用全屏的状态下隐藏</div>
+      <div id="wallpaper-part" className="theme-part">
+        <div className="setting-title">桌面壁纸</div>
+        <div className="setting-description">选择一张图片作为桌面壁纸</div>
+        <div className="select-wallpaper-wrapper">
+          <div className="wallpaper-item"><img src={wallpaper1} alt="wallpaper" /></div>
+          <div className="wallpaper-item"><img src={wallpaper2} alt="wallpaper" /></div>
+          <div className="wallpaper-item"><img src={wallpaper3} alt="wallpaper" /></div>
+        </div>
+      </div>
+      <div id="status-bar-part" className="theme-part">
+        <div className="setting-title">状态栏</div>
+        <div className="select-status-wrapper">
+          <div className="light-theme">
+            <input type="radio" name="status-bar-status" id="always-show" />
+            <label htmlFor="always-show">始终显示</label>
+          </div>
+          <div className="dark-theme">
+            <input type="radio" name="status-bar-status" id="always-hide" />
+            <label htmlFor="always-hide">始终隐藏</label>
+          </div>
+          <div className="dark-theme">
+            <input type="radio" name="status-bar-status" id="only-show-onfullscreen" />
+            <label htmlFor="only-show-onfullscreen">仅在有应用全屏的状态下隐藏</label>
+          </div>
         </div>
       </div>
     </div>
   )
 }
-// 3. 语言 language
-function LanguageSetting () {
+// 3. 系统设置 system
+function SystemSetting () {
   return (
-    <div>语言设置</div>
+    <div id="system-setting">
+      <div>
+        <div>自动锁屏</div>
+        <div>在一段时间无操作之后系统将会自动锁屏</div>
+        <select>
+          <option>5分钟</option>
+          <option>10分钟</option>
+          <option>30分钟</option>
+          <option>1小时</option>
+        </select>
+        <div>
+          <div>自定义</div>
+          <input></input>
+          <div>分钟</div>
+        </div>
+      </div>
+    </div>
   )
 }
 // 4. 关于 about

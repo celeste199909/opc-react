@@ -19,6 +19,12 @@ let actions = {
         app: theApp
       }
     },
+    prepositionApp: (appName) => {
+      return {
+        type: "PREPOSITION_APP",
+        appName: appName
+      }
+    },
     restoreApp: (theApp) => {
       return {
         type: "RESTORE_APP",

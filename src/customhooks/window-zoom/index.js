@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 
 function useWindowZoom (appName, options) {
 
-  let { top, right, bottom, left } = options
+  let { top, right, bottom, left, rightBottom } = options
   // console.log(appName, options);
 
   const [application, setApplication] = useState(null);
@@ -50,69 +50,79 @@ function useWindowZoom (appName, options) {
 
     leftSide.addEventListener("mousedown", handleMousedownLeft)
   }
+  if (rightBottom) {
+    // left
+    let rightBottomSide = document.createElement("div")
+    rightBottomSide.className = "right-bottom-corner"
+    application.appendChild(rightBottomSide)
 
-  // listener function
-  // top
-  function handleMousedownTop (e) {
-    let { clientY } = e
-
-    let webpc = document.querySelector("#web-pc")
-    let application = e.target.parentNode
-    let { height } = application.getBoundingClientRect();
-
-    webpc.addEventListener("mousemove", move)
-
-    function move (e) {
-      let endClientY = e.clientY
-      let distance = endClientY - clientY
-      application.style.height = height - distance + "px";
-    }
-    webpc.addEventListener("mouseup", () => {
-      webpc.removeEventListener("mousemove", move)
-    })
+    rightBottomSide.addEventListener("mousedown", handleMousedownRightBottom)
   }
-  // bottom
-  function handleMousedownBottom (e) {
-    let { clientY } = e
 
-    let webpc = document.querySelector("#web-pc")
-    let application = e.target.parentNode
-    let { height } = application.getBoundingClientRect();
 
-    webpc.addEventListener("mousemove", move)
 
-    function move (e) {
-      let endClientY = e.clientY
-      let distance = endClientY - clientY
-      application.style.height = height + distance + "px";
-    }
-    webpc.addEventListener("mouseup", () => {
-      webpc.removeEventListener("mousemove", move)
-    })
-  }
-  // Left
-  function handleMousedownLeft (e) {
-    let { clientX } = e
-    // console.log(e);
-    let webpc = document.querySelector("#web-pc")
-    let application = e.target.parentNode
-    let { width } = application.getBoundingClientRect();
 
-    webpc.addEventListener("mousemove", move)
-
-    function move (e) {
-      // console.log("move");
-      let endClientX = e.clientX
-      let distance = endClientX - clientX
-      application.style.width = width - distance + "px";
-    }
-
-    webpc.addEventListener("mouseup", () => {
-      webpc.removeEventListener("mousemove", move)
-    })
-  }
 }
+// listener function
+// top
+function handleMousedownTop (e) {
+  let { clientY } = e
 
+  let webpc = document.querySelector("#web-pc")
+  let application = e.target.parentNode
+  let { height } = application.getBoundingClientRect();
+
+  webpc.addEventListener("mousemove", move)
+
+  function move (e) {
+    let endClientY = e.clientY
+    let distance = endClientY - clientY
+    application.style.height = height - distance + "px";
+  }
+  webpc.addEventListener("mouseup", () => {
+    webpc.removeEventListener("mousemove", move)
+  })
+}
+// bottom
+function handleMousedownBottom (e) {
+  let { clientY } = e
+
+  let webpc = document.querySelector("#web-pc")
+  let application = e.target.parentNode
+  let { height } = application.getBoundingClientRect();
+
+  webpc.addEventListener("mousemove", move)
+
+  function move (e) {
+    let endClientY = e.clientY
+    let distance = endClientY - clientY
+    application.style.height = height + distance + "px";
+  }
+  webpc.addEventListener("mouseup", () => {
+    webpc.removeEventListener("mousemove", move)
+  })
+}
+// Left
+function handleMousedownLeft (e) {
+  let { clientX } = e
+  // console.log(e);
+  let webpc = document.querySelector("#web-pc")
+  let application = e.target.parentNode
+  let { width } = application.getBoundingClientRect();
+
+  webpc.addEventListener("mousemove", move)
+
+  function move (e) {
+    // console.log("move");
+    let endClientX = e.clientX
+    let distance = endClientX - clientX
+    application.style.width = width - distance + "px";
+  }
+
+  webpc.addEventListener("mouseup", () => {
+    webpc.removeEventListener("mousemove", move)
+  })
+}
 function handleMousedownRight (e) {
   let { clientX } = e
   // console.log(e);
@@ -133,5 +143,33 @@ function handleMousedownRight (e) {
     webpc.removeEventListener("mousemove", move)
   })
 }
+
+function handleMousedownRightBottom (e) {
+  let { clientX } = e
+  // console.log(e);
+  let webpc = document.querySelector("#web-pc")
+  let application = e.target.parentNode
+  let { width, height } = application.getBoundingClientRect();
+
+  // 当前窗口 宽高比 
+  let proportion = (width / height).toFixed(4)
+  console.log(proportion);
+
+  webpc.addEventListener("mousemove", move)
+
+  function move (e) {
+    // console.log("move");
+    let endClientX = e.clientX
+    let distance = endClientX - clientX
+    application.style.width = width + distance + "px";
+    application.style.height = width / proportion + distance + "px";
+  }
+
+  webpc.addEventListener("mouseup", () => {
+    webpc.removeEventListener("mousemove", move)
+  })
+}
+
+
 
 export default useWindowZoom

@@ -2,10 +2,9 @@ import "./style.css"
 
 import AppIcon from "../../components/app-icon"
 import Toolbar from "../../components/app-tool-bar"
-// import zoom from "../../components/app-zoom"
+// 自定义hooks
 import useWindowZoom from "../../customhooks/window-zoom"
-
-// import { useEffect } from "react"
+import usePrepositionWindow from "../../customhooks/preposition-window"
 
 import iconImg from "../../images/applications/music.png"
 
@@ -26,8 +25,8 @@ function MusicIcon (props) {
 
 function MusicUI (props) {
 
-  useWindowZoom(Music.name, { right: true, bottom: true })
-
+  useWindowZoom(Music.name, { right: true, bottom: true, rightBottom: true })
+  usePrepositionWindow(Music.name)
   return (
     <div id="music" className="application">
       <Toolbar theApp={Music} />

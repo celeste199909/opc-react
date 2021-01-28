@@ -1,4 +1,4 @@
-import { openApp, closeApp, minimizeApp, restoreApp } from "./actions"
+import { openApp, closeApp, minimizeApp, restoreApp, prepositionApp } from "./actions"
 
 import Music from "../../applications/music"
 import Setting from "../../applications/setting"
@@ -13,6 +13,8 @@ export default function appManagerReducer (state = {
       return openApp(state, action)
     case "DELETE_APP":
       return closeApp(state, action)
+    case "PREPOSITION_APP":
+      return prepositionApp(state, action)
     case "MINIMIZE_APP":
       return minimizeApp(state, action)
     case "RESTORE_APP":

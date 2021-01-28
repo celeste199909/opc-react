@@ -1,6 +1,7 @@
 #status-bar-time {
   height: 100%;
-  flex: 0 0 200px;
+  /* flex: 0 0 200px; */
+  width: 140px;
   line-height: 40px;
   text-align: center;
 }
