@@ -7,7 +7,7 @@ import Time from "../status-bar-time"
 
 function StatusBar (props) {
 
-  let openedApps = useSelector(state => state.openedApps)
+  let openedApps = useSelector(state => state.appManager.openedApps)
 
   return (
     <div id="status-bar">

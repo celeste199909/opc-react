@@ -1,6 +1,8 @@
 import "./style.css"
-import { useState, useEffect } from "react"
-import zoom from "../app-zoom"
+import { useState } from "react"
+// import zoom from "../app-zoom"
+import useWindowZoom from "../../customhooks/window-zoom"
+
 
 import startIcon from "../../images/applications/startup.png"
 import touxiang from "../../images/touxiang.jpg"
@@ -8,12 +10,10 @@ import touxiang from "../../images/touxiang.jpg"
 export default function StartMenu () {
   // 控制开始菜单的 显示/隐藏
   let [showStartMenu, setShowStartMenu] = useState(false)
+  // 使用 自定义 hooks 添加窗口缩放
+  let id = "start-menu-content"
+  useWindowZoom(id, { top: true, right: true })
 
-  useEffect(() => {
-    let id = "start-menu-content"
-    zoom(id, { top: true, right: true })
-    // 给一个空数组，只在挂载的时候执行一次，避免多次添加缩放控件
-  }, []);
   return (
     <div id="start-menu">
       <div className="start-btn" onClick={() => {

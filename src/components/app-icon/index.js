@@ -2,12 +2,15 @@ import "./style.css"
 import { useSelector, useDispatch } from "react-redux"
 
 import actions from "../../store/actions"
-import dndIcon from "../../libs/dndIcon"
+import useDragDropIcon from "../../customhooks/drap-drop-icon"
 
 function AppIcon (props) {
+  // 处理应用图标拖动
+  let dragDropIcon = useDragDropIcon
+
   let { theApp } = props
-  let openedApps = useSelector(state => state.openedApps)
-  let minimizeApps = useSelector(state => state.minimizeApps)
+  let openedApps = useSelector(state => state.appManager.openedApps)
+  let minimizeApps = useSelector(state => state.appManager.minimizeApps)
 
   let dispatch = useDispatch()
 
@@ -26,7 +29,7 @@ function AppIcon (props) {
       return
     }
     if (!theAppIsOpened) {
-      dispatch(actions.openApp(theApp))
+      dispatch(actions.appManager.openApp(theApp))
     } else {
       // 如果已经打开，则显示|隐藏
       MiniOrRestoreApp(theApp)
@@ -38,21 +41,20 @@ function AppIcon (props) {
       return
     }
     if (!theAppIsOpened) {
-      dispatch(actions.openApp(theApp))
+      dispatch(actions.appManager.openApp(theApp))
     } else {
       // 如果已经打开，则显示|隐藏
       MiniOrRestoreApp(theApp)
     }
   }
-  // 处理应用图标拖动
 
   function MiniOrRestoreApp (theApp) {
     if (!theAppIsMini) {
-      dispatch(actions.minimizeApp(theApp))
+      dispatch(actions.appManager.minimizeApp(theApp))
       document.querySelector(`#${theApp.name}`).classList.add("minimized-app")
 
     } else {
-      dispatch(actions.restoreApp(theApp))
+      dispatch(actions.appManager.restoreApp(theApp))
       document.querySelector(`#${theApp.name}`).className = "application normal"
     }
   }
@@ -62,7 +64,7 @@ function AppIcon (props) {
       className={"app-icon " + theApp.name}
       onClick={handleCilickAppIcon}
       onDoubleClick={handleDoubleCilick}
-      onMouseDown={dndIcon}
+      onMouseDown={dragDropIcon}
       draggable={true}
       src={theApp.iconImg} alt={theApp.cname} />
   )

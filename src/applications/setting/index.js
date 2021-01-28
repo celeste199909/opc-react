@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./style.css"
 
 import AppIcon from "../../components/app-icon"
 import Toolbar from "../../components/app-tool-bar"
-import zoom from "../../components/app-zoom"
+// import zoom from "../../components/app-zoom"
+import useWindowZoom from "../../customhooks/window-zoom"
 
 import iconImg from "../../images/applications/setting.png"
 
@@ -33,7 +34,9 @@ function SettingIcon (props) {
 
 function SettingUI (props) {
 
-  const [settingList, setSettingList] = useState([
+  useWindowZoom(Setting.name, { right: true, bottom: true })
+
+  const [settingList] = useState([
     { name: "acount", cname: "账户", icon: acountIcon },
     { name: "appearance", cname: "外观", icon: appearanceIcon },
     { name: "language", cname: "语言", icon: languageIcon },
@@ -52,9 +55,9 @@ function SettingUI (props) {
     setSettingDetails(null)
   }
 
-  useEffect(() => {
-    zoom(Setting.name, { right: true, bottom: true })
-  }, [])
+  // useEffect(() => {
+  //   // zoom()
+  // }, [])
 
   return (
     <div id="setting" className="application">
@@ -127,8 +130,8 @@ function AcountSetting () {
   return (
     <div id="acount-setting">
       <div id="acount-avatar-part" className="acount-part">
-        <div className="acount-title">头像</div>
-        <div className="acount-description">请从下面预设图片挑选一个来作为你的头像，头像会显示在开始菜单中</div>
+        <div className="acount-title">头像：</div>
+        <div className="acount-description">请从下面预设图片中挑选一个你喜欢的来作为你的头像吧，头像会显示在开始菜单中</div>
         <div className="select-avatar">
           <div className="avatar-item"><img src={avatar} alt="avatar" /></div>
           <div className="avatar-item"><img src={avatar} alt="avatar" /></div>
@@ -138,13 +141,12 @@ function AcountSetting () {
         </div>
       </div>
       <div id="acount-username-part" className="acount-part">
-        <div className="acount-title">用户名</div>
+        <div className="acount-title">用户名：</div>
         <div className="username-wrapper">
           <input type="text" placeholder="请输入用户名"
             value={username} onChange={handleOnchange}></input>
           <button>确定</button>
         </div>
-
       </div>
     </div>
   )
@@ -152,7 +154,23 @@ function AcountSetting () {
 // 2. 外观 appearance
 function AppearanceSetting () {
   return (
-    <div>外观设置</div>
+    <div id="appearance-setting">
+      <div id="theme-part" className="theme-part">
+        <div className="appearance-title">主题</div>
+        <div>
+          <div>明亮</div>
+          <div>夜间</div>
+        </div>
+      </div>
+      <div id="status-part" className="theme-part">
+        <div className="appearance-title">状态栏</div>
+        <div>
+          <div>始终显示</div>
+          <div>始终隐藏</div>
+          <div>仅在有应用全屏的状态下隐藏</div>
+        </div>
+      </div>
+    </div>
   )
 }
 // 3. 语言 language

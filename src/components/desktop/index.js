@@ -5,9 +5,9 @@ import ContextMenu from "../desktop-context-menu"
 
 function Desktop () {
 
-  let allApps = useSelector(state => state.allApps)
+  let allApps = useSelector(state => state.appManager.allApps)
   // console.log(allApps);
-  let openedApps = useSelector(state => state.openedApps)
+  let openedApps = useSelector(state => state.appManager.openedApps)
 
   let [girdCount, setGirdCount] = useState([]);
 

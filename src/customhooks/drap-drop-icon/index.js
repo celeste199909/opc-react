@@ -1,4 +1,4 @@
-export default function dndIcon (e) {
+export default function useDragDropIcon (e) {
   // e.stopPropagation()
   let env = e.target.parentNode.parentNode.id
   // console.log(env);

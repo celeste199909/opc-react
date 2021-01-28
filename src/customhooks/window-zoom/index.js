@@ -1,10 +1,21 @@
 import "./style.css"
+import { useState, useEffect } from "react"
 
-function zoom (appName, options) {
+function useWindowZoom (appName, options) {
 
   let { top, right, bottom, left } = options
+  // console.log(appName, options);
 
-  let application = document.querySelector(`#${appName}`)
+  const [application, setApplication] = useState(null);
+
+  useEffect(() => {
+    let applicationEl = document.querySelector(`#${appName}`)
+    setApplication(applicationEl)
+  }, [appName]);
+
+  if (!application) {
+    return
+  }
 
   if (top) {
     // top
@@ -12,10 +23,11 @@ function zoom (appName, options) {
     topSide.className = "top-side"
     application.appendChild(topSide)
 
+
     topSide.addEventListener("mousedown", handleMousedownTop)
   }
   if (right) {
-    // right
+    //   // right
     let rightSide = document.createElement("div")
     rightSide.className = "right-side"
     application.appendChild(rightSide)
@@ -38,8 +50,6 @@ function zoom (appName, options) {
 
     leftSide.addEventListener("mousedown", handleMousedownLeft)
   }
-
-
 
   // listener function
   // top
@@ -124,4 +134,4 @@ function handleMousedownRight (e) {
   })
 }
 
-export default zoom
+export default useWindowZoom
