@@ -40,13 +40,6 @@ function minimizeApp (state, action) {
 }
 
 function restoreApp (state, action) {
-  // let newArr = Array.from(state.openedApps)
-  // state.openedApps.forEach((element, index) => {
-  //   if (element.name === action.app.name) {
-  //     let item = newArr.splice(index, 1)[0]
-  //     newArr.push(item)
-  //   }
-  // });
   return {
     ...state,
     minimizeApps: state.minimizeApps.filter(o => o.name !== action.app.name),

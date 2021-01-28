@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import "./style.css"
 
 import AppIcon from "../../components/app-icon"
@@ -16,7 +18,11 @@ import aboutIcon from "../../images/applications/about.png"
 import helpIcon from "../../images/applications/help.png"
 
 // 头像
-import avatar from "../../images/touxiang.jpg"
+import avatar1 from "../../images/touxiang.jpg"
+import avatar2 from "../../images/avatar2.jpeg"
+import avatar3 from "../../images/avatar3.jpeg"
+import avatar4 from "../../images/avatar4.jpeg"
+import avatar5 from "../../images/avatar5.jpeg"
 // 壁纸
 import wallpaper1 from "../../images/wallpapers/wallpaper1.jpg"
 import wallpaper2 from "../../images/wallpapers/wallpaper2.jpg"
@@ -124,10 +130,32 @@ function SettingDetailsPage (props) {
 // 1. 账户
 function AcountSetting () {
 
-  const [username, setUsername] = useState("默认用户名")
+  const [defaultUsername, setDefalutUsername] = useState("默认用户名")
+
+  // let username = useSelector(state => state.acountInfo.username)
+
+  // 预设头像
+  let avatars = [avatar1, avatar2, avatar3, avatar4, avatar5]
+  // 
+  let dispatch = useDispatch()
+
   function handleOnchange (e) {
-    setUsername(e.target.value)
-    console.log();
+    setDefalutUsername(e.target.value)
+    // username = e.target.value
+  }
+  function handleUpdateUsername () {
+    dispatch({
+      type: "UPDATE_USERNAME",
+      username: defaultUsername
+    })
+  }
+  function handleClick (avatar) {
+    // console.log(e);
+    dispatch({
+      type: "UPDATE_AVATAR",
+      avatar
+    })
+
   }
   return (
     <div id="acount-setting">
@@ -135,19 +163,24 @@ function AcountSetting () {
         <div className="setting-title">头像：</div>
         <div className="setting-description">请从下面预设图片中挑选一个你喜欢的来作为你的头像吧，头像会显示在开始菜单中</div>
         <div className="select-avatar">
-          <div className="avatar-item"><img src={avatar} alt="avatar" /></div>
-          <div className="avatar-item"><img src={avatar} alt="avatar" /></div>
-          <div className="avatar-item"><img src={avatar} alt="avatar" /></div>
-          <div className="avatar-item"><img src={avatar} alt="avatar" /></div>
-          <div className="avatar-item"><img src={avatar} alt="avatar" /></div>
+          {avatars.map((item, index) => {
+            return (
+              <div className="avatar-item"
+                key={"avatar" + index}
+                onClick={handleClick.bind(this, item)}
+              >
+                <img src={item} alt="avatar" />
+              </div>
+            )
+          })}
         </div>
       </div>
       <div id="acount-username-part" className="acount-part">
         <div className="setting-title">用户名：</div>
         <div className="username-wrapper">
           <input type="text" placeholder="请输入用户名"
-            value={username} onChange={handleOnchange}></input>
-          <button>确定</button>
+            value={defaultUsername} onChange={handleOnchange}></input>
+          <button onClick={handleUpdateUsername}>确定</button>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ function AppIcon (props) {
   let openedApps = useSelector(state => state.appManager.openedApps)
   let minimizeApps = useSelector(state => state.appManager.minimizeApps)
   // 打开但不是 最小化
-  const openNotMini = openedApps.filter(x => !minimizeApps.find(y => y.name === x.name));
+  // const openNotMini = openedApps.filter(x => !minimizeApps.find(y => y.name === x.name));
   let dispatch = useDispatch()
 
   // 是否已经打开

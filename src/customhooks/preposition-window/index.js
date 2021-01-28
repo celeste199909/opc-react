@@ -45,6 +45,7 @@ export default function usePrepositionWindow (name) {
     // console.log(openedApps);
     app.addEventListener("click", handleClick)
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 

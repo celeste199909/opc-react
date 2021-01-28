@@ -33,14 +33,16 @@ let actions = {
     },
   },
   acountInfo: {
-    updateAvatar: () => {
+    updateAvatar: (avatar) => {
       return {
         type: "UPSTATE_AVATAR",
+        avatar
       }
     },
-    updateUsername: () => {
+    updateUsername: (username) => {
       return {
         type: "UPSTATE_USERNAME",
+        username
       }
     }
   }

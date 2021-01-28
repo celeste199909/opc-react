@@ -1,11 +1,10 @@
 import "./style.css"
 import { useState } from "react"
+import { useSelector } from "react-redux"
+
 // import zoom from "../app-zoom"
 import useWindowZoom from "../../customhooks/window-zoom"
-
-
 import startIcon from "../../images/applications/startup.png"
-import touxiang from "../../images/touxiang.jpg"
 
 export default function StartMenu () {
   // 控制开始菜单的 显示/隐藏
@@ -13,6 +12,9 @@ export default function StartMenu () {
   // 使用 自定义 hooks 添加窗口缩放
   let id = "start-menu-content"
   useWindowZoom(id, { top: true, right: true })
+  // 用户信息
+  let avatar = useSelector(state => state.acountInfo.avatar)
+  let username = useSelector(state => state.acountInfo.username)
 
   return (
     <div id="start-menu">
@@ -27,8 +29,8 @@ export default function StartMenu () {
           <div><i className="iconfont icon-xianxingguanji"></i></div>
         </div>
         <div className="menu-right">
-          <div className="touxiang"><img src={touxiang} alt="touxiang" draggable={false} /></div>
-          <div className="username">用户名</div>
+          <div className="touxiang"><img src={avatar} alt="touxiang" draggable={false} /></div>
+          <div className="username">{username}</div>
           <article>
             <p>使用提示</p>
             <p>1. 双击打开应用</p>

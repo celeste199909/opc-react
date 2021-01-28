@@ -11,11 +11,13 @@ function StatusBar (props) {
 
   let [newOpenedApps, setNewOpenedApps] = useState(null)
   // setOpenedAppsLength(openedApps.length)
-  let l = openedApps.length
+  // 当打开app的数量改变时才执行
+  let length = openedApps.length
   useEffect(() => {
     setNewOpenedApps(openedApps)
-    console.log("length change");
-  }, [l]);
+    // console.log("length change");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [length]);
 
   return (
     <div id="status-bar">
