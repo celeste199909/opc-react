@@ -1,4 +1,4 @@
-import "./style.css"
+import "./style/icon.css"
 import { useSelector, useDispatch } from "react-redux"
 
 import actions from "../../store/actions"

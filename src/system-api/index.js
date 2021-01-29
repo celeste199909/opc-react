@@ -1,12 +1,20 @@
-import StatusBar from "../components/status-bar"
-import LockScreen from "../components/lock-screen"
+import { hideOrShow } from "../components/status-bar"
+import { lock } from "../components/lock-screen"
+import { shutdown } from "../components/shutdown"
+import { fullScreen } from "../WebPC"
 
 const System = {
   StatusBar: {
-    hideOrShow: StatusBar.hideOrShow
+    hideOrShow
   },
   LockScreen: {
-    lock: LockScreen.lock
+    lock
+  },
+  WebPC: {
+    fullScreen
+  },
+  Shutdown: {
+    shutdown
   }
 }
 

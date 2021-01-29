@@ -22,6 +22,12 @@
   margin-right: 5px;
 }
 
+.tools-bar .window-operation:hover .minimize-window,
+.tools-bar .window-operation:hover .maximize-window,
+.tools-bar .window-operation:hover .close-window {
+  color: rgba(29, 29, 29, 0.836);
+}
+
 /* 最小化按钮 */
 .tools-bar .window-operation .minimize-window {
   color: rgb(104, 146, 235);
@@ -37,8 +43,4 @@
 .tools-bar .window-operation .close-window {
   color: rgb(248, 183, 62);
   background-color: rgb(248, 183, 62);
-}
-
-.tools-bar .window-operation .btn:hover {
-  color: rgba(29, 29, 29, 0.836);
 }

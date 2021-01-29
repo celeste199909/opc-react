@@ -4,7 +4,7 @@
   height: 100vh;
   left: 0;
   top: 0;
-  background-image: url(../../images/wallpapers/wallpaper3.jpg);
+  background-image: url(../../static/images/wallpapers/wallpaper3.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   backdrop-filter: blur(20px);

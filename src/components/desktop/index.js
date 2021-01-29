@@ -1,7 +1,7 @@
-import "./style.css"
+import "./style/desktop.css"
 import { useEffect, useState } from 'react';
 import { useSelector } from "react-redux"
-import ContextMenu from "../desktop-context-menu"
+import ContextMenu from "./context-menu"
 
 function Desktop () {
 

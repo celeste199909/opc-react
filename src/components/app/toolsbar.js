@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { useState } from "react"
-import "./style.css"
+import "./style/toolsbar.css"
 function ToolsBar (props) {
 
   let dispatch = useDispatch()

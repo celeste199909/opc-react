@@ -1,4 +1,4 @@
-import "./style.css"
+import "./style/time.css"
 import { useState } from "react"
 import * as moment from 'moment';
 moment.locale("zh-cn");

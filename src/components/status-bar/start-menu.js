@@ -1,10 +1,11 @@
-import "./style.css"
-import { useState, useEffect } from "react"
+import "./style/start-menu.css"
+import { useState } from "react"
 import { useSelector } from "react-redux"
+import System from "@system-api/index"
 
 // import zoom from "../app-zoom"
-import useWindowZoom from "../../customhooks/window-zoom"
-import startIcon from "../../images/applications/startup.png"
+import useWindowZoom from "@customhooks/window-zoom"
+import startIcon from "@images/startup.png"
 
 export default function StartMenu () {
   // 控制开始菜单的 显示/隐藏
@@ -15,6 +16,8 @@ export default function StartMenu () {
   // 用户信息
   let avatar = useSelector(state => state.acountInfo.avatar)
   let username = useSelector(state => state.acountInfo.username)
+
+  // 点击其他地方关闭
 
   // useEffect(() => {
 
@@ -33,16 +36,14 @@ export default function StartMenu () {
   return (
     <div id="start-menu">
       <div className="start-btn" onClick={() => {
-        console.log(11);
-        console.log(showStartMenu);
         setShowStartMenu(!showStartMenu)
       }}>
         <img src={startIcon} alt="start" draggable="false" />
       </div>
       <div id="start-menu-content" className={showStartMenu ? "active" : "unactive"}>
         <div className="menu-left">
-          <div><i className="iconfont icon-shezhi"></i></div>
-          <div><i className="iconfont icon-xianxingguanji"></i></div>
+          {/* <div><i className="iconfont icon-shezhi"></i></div> */}
+          <div onClick={System.LockScreen.lock}><i className="iconfont icon-xianxingguanji"></i></div>
         </div>
         <div className="menu-right">
           <div className="touxiang"><img src={avatar} alt="touxiang" draggable={false} /></div>

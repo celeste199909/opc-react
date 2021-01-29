@@ -1,5 +1,5 @@
 // acountInfoReducer
-import defaultAvatar from "../../images/touxiang.jpg"
+import defaultAvatar from "@images/avatars/touxiang.jpg"
 
 import { updateAvatar, updateUsername } from "./actions"
 

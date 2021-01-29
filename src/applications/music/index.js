@@ -1,15 +1,11 @@
 import "./style.css"
-
-import AppIcon from "../../components/app-icon"
-import Toolbar from "../../components/app-tool-bar"
+import iconImg from "@images/music.png"
+// app 组件
+import AppIcon from "@components/app/icon"
+import Toolbar from "@components/app/toolsbar"
 // 自定义hooks
-import useWindowZoom from "../../customhooks/window-zoom"
-import usePrepositionWindow from "../../customhooks/preposition-window"
-
-import iconImg from "../../images/applications/music.png"
-
-import { useDispatch } from 'react-redux';
-import actions from "../../store/actions.js"
+import useWindowZoom from "@customhooks/window-zoom"
+import usePrepositionWindow from "@customhooks/preposition-window"
 
 
 let Music = {
@@ -27,7 +23,7 @@ function MusicIcon (props) {
   );
 }
 
-function MusicUI (props) {
+function MusicUI () {
   useWindowZoom(Music.name, { right: true, bottom: true, rightBottom: true })
   usePrepositionWindow(Music.name)
   return (
@@ -39,9 +35,4 @@ function MusicUI (props) {
   );
 }
 
-function useOpen (params) {
-  let dispatch = useDispatch()
-  dispatch(actions.appManager.openApp(Music))
-}
-Music.open = useOpen
 export default Music;

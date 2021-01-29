@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
-import "./style.css"
+import "./style/status-bar.css"
 // 组件
-import StartMenu from '../status-bar-start-menu';
-import Time from "../status-bar-time"
+import StartMenu from './start-menu';
+import Time from "./time"
 
-function StatusBar (props) {
+function StatusBar () {
 
   let openedApps = useSelector(state => state.appManager.openedApps)
   // 状态栏要显示的应用
@@ -47,6 +47,7 @@ function hideOrShow () {
   }
 }
 
-// 挂载方法
-StatusBar.hideOrShow = hideOrShow
 export default StatusBar
+export {
+  hideOrShow
+}
