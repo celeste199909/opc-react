@@ -1,11 +1,11 @@
 import "./style.css"
-import iconImg from "@images/music.png"
+import iconImg from "../../static/images/music.png"
 // app 组件
-import AppIcon from "@components/app/icon"
-import Toolbar from "@components/app/toolsbar"
+import AppIcon from "../../components/app/icon"
+import Toolbar from "../../components/app/toolsbar"
 // 自定义hooks
-import useWindowZoom from "@customhooks/window-zoom"
-import usePrepositionWindow from "@customhooks/preposition-window"
+import useWindowZoom from "../../customhooks/window-zoom"
+import usePrepositionWindow from "../../customhooks/preposition-window"
 
 
 let Music = {

@@ -22,7 +22,7 @@ function StatusBar () {
       {/* 1.开始菜单 */}
       <StartMenu />
       {/* 2.打开的应用 */}
-      <ul id="opened-apps-list">
+      <ul id="status-bar-opened-apps-list">
         {newOpenedApps && newOpenedApps.map((App) => {
           return (
             <li key={"statubar-icon" + App.name}>

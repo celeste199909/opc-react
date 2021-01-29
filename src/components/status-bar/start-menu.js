@@ -1,11 +1,10 @@
 import "./style/start-menu.css"
 import { useState } from "react"
 import { useSelector } from "react-redux"
-import System from "@system-api/index"
+import System from "../../system-api/index"
 
-// import zoom from "../app-zoom"
-import useWindowZoom from "@customhooks/window-zoom"
-import startIcon from "@images/startup.png"
+import useWindowZoom from "../../customhooks/window-zoom"
+import startIcon from "../../static/images/startup.png"
 
 export default function StartMenu () {
   // 控制开始菜单的 显示/隐藏
@@ -35,7 +34,7 @@ export default function StartMenu () {
 
   return (
     <div id="start-menu">
-      <div className="start-btn" onClick={() => {
+      <div id="status-bar-start-btn" onClick={() => {
         setShowStartMenu(!showStartMenu)
       }}>
         <img src={startIcon} alt="start" draggable="false" />

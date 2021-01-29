@@ -3,29 +3,30 @@ import { useDispatch } from "react-redux";
 
 import "./style.css"
 
-import AppIcon from "@components/app/icon"
-import Toolbar from "@components/app/toolsbar"
+// app 组件
+import AppIcon from "../../components/app/icon"
+import Toolbar from "../../components/app/toolsbar"
 // 自定义hooks
-import useWindowZoom from "@customhooks/window-zoom"
-import usePrepositionWindow from "@customhooks/preposition-window"
+import useWindowZoom from "../../customhooks/window-zoom"
+import usePrepositionWindow from "../../customhooks/preposition-window"
 
-import iconImg from "@static/images/setting/setting.png"
+import iconImg from "../../static/images/setting/setting.png"
 
-import acountIcon from "@static/images/setting/acount.png"
-import appearanceIcon from "@static/images/setting/appearance.png"
-import systemIcon from "@static/images/setting/system.png"
-import aboutIcon from "@static/images/setting/about.png"
-import helpIcon from "@static/images/setting/help.png"
+import acountIcon from "../../static/images/setting/acount.png"
+import appearanceIcon from "../../static/images/setting/appearance.png"
+import systemIcon from "../../static/images/setting/system.png"
+import aboutIcon from "../../static/images/setting/about.png"
+import helpIcon from "../../static/images/setting/help.png"
 // 头像
-import avatar1 from "@static/images/avatars/touxiang.jpg"
-import avatar2 from "@static/images/avatars/avatar2.jpeg"
-import avatar3 from "@static/images/avatars/avatar3.jpeg"
-import avatar4 from "@static/images/avatars/avatar4.jpeg"
-import avatar5 from "@static/images/avatars/avatar5.jpeg"
+import avatar1 from "../../static/images/avatars/touxiang.jpg"
+import avatar2 from "../../static/images/avatars/avatar2.jpeg"
+import avatar3 from "../../static/images/avatars/avatar3.jpeg"
+import avatar4 from "../../static/images/avatars/avatar4.jpeg"
+import avatar5 from "../../static/images/avatars/avatar5.jpeg"
 // 壁纸
-import wallpaper1 from "@static/images/wallpapers/wallpaper1.jpg"
-import wallpaper2 from "@static/images/wallpapers/wallpaper2.jpg"
-import wallpaper3 from "@static/images/wallpapers/wallpaper3.jpg"
+import wallpaper1 from "../../static/images/wallpapers/wallpaper1.jpg"
+import wallpaper2 from "../../static/images/wallpapers/wallpaper2.jpg"
+import wallpaper3 from "../../static/images/wallpapers/wallpaper3.jpg"
 
 let Setting = {
   name: "setting",

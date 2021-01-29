@@ -1,6 +1,5 @@
 import { hideOrShow } from "../components/status-bar"
 import { lock } from "../components/lock-screen"
-import { shutdown } from "../components/shutdown"
 import { fullScreen } from "../WebPC"
 
 const System = {
@@ -12,9 +11,6 @@ const System = {
   },
   WebPC: {
     fullScreen
-  },
-  Shutdown: {
-    shutdown
   }
 }
 
