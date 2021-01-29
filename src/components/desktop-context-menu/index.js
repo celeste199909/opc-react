@@ -73,8 +73,8 @@ export default function ContextMenu (params) {
         {/* {contextMenuList.map((o) => {
           return <li key={o}>{o}</li>
         })} */}
-        <li onClick={System.StatusBar.hide}>隐藏状态栏</li>
-        <li onClick={System.StatusBar.show}>显示状态栏</li>
+        <li onClick={System.StatusBar.hideOrShow}>隐藏/显示状态栏</li>
+        <li onClick={System.LockScreen.lock}>锁屏</li>
       </ul>
     </div>
   )

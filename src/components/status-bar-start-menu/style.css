@@ -29,6 +29,7 @@
   background-color: rgba(65, 65, 65, 0.911);
   backdrop-filter: blur(5px);
   /* transition: all ease 1s; */
+  z-index: 1;
 }
 
 @keyframes showmenu {
@@ -46,18 +47,22 @@
 @keyframes hidemenu {
   0% {
     opacity: 1;
+    bottom: 40px;
+
   }
 
   100% {
     opacity: 0;
+    bottom: -440px;
+
   }
 }
 
 
 #start-menu-content.unactive {
-  /* animation: hidemenu;
-animation-duration: 0.4s;
-animation-fill-mode: both; */
+  animation: hidemenu;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
 }
 
 #start-menu-content.active {

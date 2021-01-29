@@ -1,13 +1,13 @@
 import StatusBar from "../components/status-bar"
+import LockScreen from "../components/lock-screen"
 
 const System = {
   StatusBar: {
-    show: StatusBar.show,
-    hide: StatusBar.hide,
-    isVisible: StatusBar.isVisible
+    hideOrShow: StatusBar.hideOrShow
+  },
+  LockScreen: {
+    lock: LockScreen.lock
   }
 }
-
-// System.StatusBar.isVisible()
 
 export default System

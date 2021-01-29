@@ -14,12 +14,8 @@ function StatusBar (props) {
   let length = openedApps.length
   useEffect(() => {
     setNewOpenedApps(openedApps)
-    // console.log("length change");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [length]);
-
-  // 状态栏的 显示状态
-  // let statusIsVisible = useState(true)
 
   return (
     <div id="status-bar" className="show-status">
@@ -40,27 +36,17 @@ function StatusBar (props) {
     </div>
   )
 }
+
 // 状态栏状态 显示 | 隐藏
-function isVisible () {
-  let className = document.querySelector("#status-bar").className
-  if (className === "show-status") {
-    return true
+function hideOrShow () {
+  let statusBar = document.querySelector("#status-bar")
+  if (statusBar.className === "show-status") {
+    statusBar.className = "hide-status"
   } else {
-    return false
+    statusBar.className = "show-status"
   }
 }
-// 隐藏状态栏
-function hide () {
-  let statusBar = document.querySelector("#status-bar")
-  statusBar.className = "hide-status"
-}
-// 显示状态栏
-function show () {
-  let statusBar = document.querySelector("#status-bar")
-  statusBar.className = "show-status"
-}
+
 // 挂载方法
-StatusBar.isVisible = isVisible
-StatusBar.hide = hide
-StatusBar.show = show
+StatusBar.hideOrShow = hideOrShow
 export default StatusBar

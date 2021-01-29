@@ -15,22 +15,26 @@ export default function StartMenu () {
   // 用户信息
   let avatar = useSelector(state => state.acountInfo.avatar)
   let username = useSelector(state => state.acountInfo.username)
-  useEffect(() => {
-    let webpc = document.querySelector("#web-pc")
-    function hideStartMenu () {
-      setShowStartMenu(false)
-    }
 
-    webpc.addEventListener("click", hideStartMenu)
-    return function cleanup () {
-      webpc.removeEventListener("click", hideStartMenu)
-    };
-  }, []);
+  // useEffect(() => {
 
+  //   let webpc = document.querySelector("#web-pc")
+  //   function hideStartMenu (e) {
+  //     setShowStartMenu(false)
+  //   }
+
+  //   webpc.addEventListener("click", hideStartMenu)
+  //   return function cleanup () {
+  //     webpc.removeEventListener("click", hideStartMenu)
+  //   };
+
+  // }, []);
 
   return (
     <div id="start-menu">
       <div className="start-btn" onClick={() => {
+        console.log(11);
+        console.log(showStartMenu);
         setShowStartMenu(!showStartMenu)
       }}>
         <img src={startIcon} alt="start" draggable="false" />

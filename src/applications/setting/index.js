@@ -9,6 +9,7 @@ import Toolbar from "../../components/app-tool-bar"
 // 自定义hooks
 import useWindowZoom from "../../customhooks/window-zoom"
 import usePrepositionWindow from "../../customhooks/preposition-window"
+import useOpenApp from "../../customhooks/open-app-anywhere"
 
 import iconImg from "../../images/applications/setting.png"
 
@@ -279,5 +280,4 @@ function HelpSetting () {
     <div>帮助设置</div>
   )
 }
-
 export default Setting;

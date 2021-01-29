@@ -8,6 +8,10 @@ import usePrepositionWindow from "../../customhooks/preposition-window"
 
 import iconImg from "../../images/applications/music.png"
 
+import { useDispatch } from 'react-redux';
+import actions from "../../store/actions.js"
+
+
 let Music = {
   name: "music",
   cname: "音乐",
@@ -24,7 +28,6 @@ function MusicIcon (props) {
 }
 
 function MusicUI (props) {
-
   useWindowZoom(Music.name, { right: true, bottom: true, rightBottom: true })
   usePrepositionWindow(Music.name)
   return (
@@ -36,4 +39,9 @@ function MusicUI (props) {
   );
 }
 
+function useOpen (params) {
+  let dispatch = useDispatch()
+  dispatch(actions.appManager.openApp(Music))
+}
+Music.open = useOpen
 export default Music;
