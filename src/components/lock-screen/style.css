@@ -46,10 +46,23 @@
   align-items: center;
 }
 
-#lock-screen .header .name {
+.lock-screen-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.lock-screen-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* #lock-screen .header .name {
   font-size: 5rem;
   text-shadow: 0 0 5px rgb(0, 0, 0);
-}
+} */
 
 /* 输入框 */
 #lock-screen div input {

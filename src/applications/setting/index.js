@@ -18,7 +18,6 @@ import appearanceIcon from "../../images/applications/appearance.png"
 import systemIcon from "../../images/applications/system.png"
 import aboutIcon from "../../images/applications/about.png"
 import helpIcon from "../../images/applications/help.png"
-
 // 头像
 import avatar1 from "../../images/touxiang.jpg"
 import avatar2 from "../../images/avatar2.jpeg"

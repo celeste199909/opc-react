@@ -1,11 +1,14 @@
 import "./style.css"
-
+import { useSelector } from "react-redux"
 import { useEffect } from "react"
 function LockScreen (params) {
+  let avatar = useSelector(state => state.acountInfo.avatar)
+
 
   useEffect(() => {
     let root = document.querySelector("#root")
     let lockScreenEl = document.querySelector("#lock-screen")
+
 
     lockScreenEl.addEventListener("keypress", spaceTofullScreen)
     lockScreenEl.addEventListener("keypress", fullScreenEnterDesktop)
@@ -25,19 +28,20 @@ function LockScreen (params) {
   })
 
   return (
-    <div id="lock-screen" className="lock">
+    <div id="lock-screen" className="unlock">
       <div className="wrapper">
         <div className="header">
-          <div className="name">web-pc</div>
+          <div className="lock-screen-avatar">
+            <img src={avatar} alt="avatar" />
+          </div>
         </div>
         <input autoFocus="autofocus" type="password" placeholder="按 Enter 开始吧" />
         <div>按 <span>[ Enter ]</span> 进入桌面</div>
         <div>按 <span>[ 空格 ]</span> 开启全屏</div>
       </div>
       <div className="footer">
-        <div className="description">一个 [ 个人电脑 ] 模拟器</div>
         <div className="description">A personal computer simulator</div>
-        <div>created by <a href="https://github.com/iceream" target="_blank" rel="noreferrer">iceream</a></div>
+        <div>created by <a href="https://github.com/iceream/opc-react" target="_blank" rel="noreferrer">iceream</a></div>
       </div>
     </div>
   )

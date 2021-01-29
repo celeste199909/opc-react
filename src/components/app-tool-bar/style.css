@@ -28,6 +28,11 @@
   background-color: rgb(104, 146, 235);
 }
 
+.tools-bar .window-operation .maximize-window {
+  color: rgb(30, 230, 180);
+  background-color: rgb(30, 230, 180);
+}
+
 /* 关闭按钮 */
 .tools-bar .window-operation .close-window {
   color: rgb(248, 183, 62);

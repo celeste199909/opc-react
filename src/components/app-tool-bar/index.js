@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux"
+import { useState } from "react"
 import "./style.css"
 function ToolsBar (props) {
 
@@ -20,17 +21,45 @@ function ToolsBar (props) {
     })
   }
 
-  // function maximizeWindow() {
-  //   let id = theApp.name
-  //   let appWindow = document.querySelector(`#${id}`)
-  //   appWindow.style.width = "100%";
-  //   appWindow.style.height = "100%";
-  //   appWindow.style.left = "0";
-  //   appWindow.style.top = "0";
-  // }
+  let [isMaximized, setIsMaximized] = useState(false)
+  let [width, setWidth] = useState(0)
+  let [height, setHeight] = useState(0)
+  let [left, setLeft] = useState(0)
+  let [top, setTop] = useState(0)
+
+  function handleMaximizeWindow (e) {
+    setIsMaximized(!isMaximized)
+
+    let id = theApp.name
+    let appWindow = document.querySelector(`#${id}`)
+
+    setWidth(appWindow.getBoundingClientRect().width)
+    setHeight(appWindow.getBoundingClientRect().height)
+    setLeft(appWindow.getBoundingClientRect().left)
+    setTop(appWindow.getBoundingClientRect().top)
+
+    if (!isMaximized) {
+      appWindow.style.width = "100%";
+      appWindow.style.height = "100%";
+      appWindow.style.left = "0";
+      appWindow.style.top = "0";
+      appWindow.style.borderRadius = 0
+
+    } else {
+      appWindow.style.width = width + "px";
+      appWindow.style.height = height + "px";
+      appWindow.style.left = left + "px";
+      appWindow.style.top = top + "px";
+      appWindow.style.borderRadius = 6 + "px"
+    }
+
+  }
 
   // 移动窗口
   function handleDrag (e) {
+    if (isMaximized) {
+      return
+    }
     // 鼠标 在元素内的坐标
     let { offsetX, offsetY } = e.nativeEvent
     let appWindowEl = e.target.parentNode
@@ -61,8 +90,9 @@ function ToolsBar (props) {
     >
       <div className="window-name">{theApp.cname}</div>
       <div className="window-operation">
-        {/* <div onClick={maximizeWindow}>口</div> */}
         <div className="btn minimize-window" onClick={minimizeWindow}>﹣</div>
+        <div className="btn maximize-window"
+          onClick={handleMaximizeWindow.bind(this)}>{isMaximized ? "▣" : "□"}</div>
         <div className="btn close-window" onClick={closeWindow}>×</div>
       </div>
     </div>
