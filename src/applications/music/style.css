@@ -2,8 +2,55 @@
   position: absolute;
   width: 600px;
   height: 400px;
-  min-width: 100px;
-  min-height: 50px;
+  min-width: 300px;
+  min-height: 320px;
   top: 100px;
   left: 100px;
+
+  color: rgb(255, 255, 255);
+  background-color: rgba(5, 5, 5, 0.924);
+  backdrop-filter: blur(5px);
+}
+
+.music-content {
+  display: flex;
+  padding: 10px 15px;
+}
+
+/* 左 */
+.music-content .main-left {
+  padding: 10px 15px;
+  flex: 0 0 150px;
+  background-color: black;
+}
+
+.music-content .main-left .title {
+  color: rgb(144, 144, 144);
+  margin-bottom: 20px;
+}
+
+.music-content .main-left .list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.music-content .main-left .list li {
+  height: 2rem;
+  line-height: 2rem;
+  border-radius: 4px;
+  text-indent: 1rem;
+  user-select: none;
+}
+
+.music-content .main-left .list li:hover {
+  background-color: #327dfb;
+}
+
+/* 右 */
+.music-content .main-right {
+  padding: 10px 15px;
+  flex: 1 0 auto;
+  position: relative;
+  box-sizing: border-box;
 }

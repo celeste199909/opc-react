@@ -4,6 +4,7 @@
   overflow: hidden;
   animation: showicon;
   animation-duration: 0.1s;
+  user-select: none;
 }
 
 @keyframes showicon {
@@ -20,11 +21,6 @@
   width: 50px;
   height: 50px;
   user-select: none;
-}
-
-.app-icon.setting:hover,
-.app-icon.music:hover {
-  /* animation: iconRotate 2.5s; */
 }
 
 @keyframes iconRotate {

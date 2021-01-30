@@ -10,6 +10,10 @@ import Toolbar from "../../components/app/toolsbar"
 import useWindowZoom from "../../customhooks/window-zoom"
 import usePrepositionWindow from "../../customhooks/preposition-window"
 
+import ToolTip from "../../components/tooltip"
+
+
+
 import iconImg from "../../static/images/setting/setting.png"
 
 import acountIcon from "../../static/images/setting/acount.png"
@@ -144,13 +148,14 @@ function AcountSetting () {
     // username = e.target.value
   }
   function handleUpdateUsername () {
+    ToolTip({ type: "success", message: "用户名修改成功" })
     dispatch({
       type: "UPDATE_USERNAME",
       username: defaultUsername
     })
   }
   function handleClick (avatar) {
-    // console.log(e);
+    ToolTip({ type: "success", message: "头像修改成功" })
     dispatch({
       type: "UPDATE_AVATAR",
       avatar
@@ -161,7 +166,7 @@ function AcountSetting () {
     <div id="acount-setting">
       <div id="acount-avatar-part" className="acount-part">
         <div className="setting-title">头像：</div>
-        <div className="setting-description">请从下面预设图片中挑选一个你喜欢的来作为你的头像吧，头像会显示在开始菜单中</div>
+        <div className="setting-description">请从下面预设图片中挑选一个你喜欢的来作为你的头像吧，头像会显示在开始菜单和锁屏界面显示</div>
         <div className="select-avatar">
           {avatars.map((item, index) => {
             return (

@@ -7,7 +7,6 @@ import Toolbar from "../../components/app/toolsbar"
 import useWindowZoom from "../../customhooks/window-zoom"
 import usePrepositionWindow from "../../customhooks/preposition-window"
 
-
 let Music = {
   name: "music",
   cname: "音乐",
@@ -29,8 +28,6 @@ function MusicUI () {
   return (
     <div id="music" className="application">
       <Toolbar theApp={Music} />
-      <div>{Music.name}</div>
-      <div>{Music.version}</div>
     </div>
   );
 }

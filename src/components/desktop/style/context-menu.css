@@ -6,7 +6,8 @@
   border-radius: 4px;
   color: #000;
   display: none;
-  min-width: 100px;
+  /* min-width: 100px; */
+  width: 150px;
   z-index: 1000;
 }
 

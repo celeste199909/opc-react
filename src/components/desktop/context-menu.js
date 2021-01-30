@@ -8,7 +8,6 @@ export default function ContextMenu () {
   // 设置菜单出现的位置
   let [style, setStyle] = useState({})
   // 根据点击目标不同显示不同功能的菜单
-  let [contextMenuList, setContextMenuList] = useState([])
 
   useEffect(() => {
 
@@ -29,15 +28,19 @@ export default function ContextMenu () {
     // 创建 上下文菜单 （功能 位置）
     function handleContextMenu (e) {
       let target = e.target
-      // console.log(target);
-      if (target.id === "desktop" || target.className === "desktop-droppable") {
-        setContextMenuList(["新建文件夹"])
-      } else if (target.className.startsWith("app")) {
-        setContextMenuList(["打开"])
-      } else {
-        setContextMenuList([])
+      if (target.id !== "desktop" && target.className !== "desktop-droppable"
+        && !target.className.startsWith("app-icon") && !target.id.startsWith("status")) {
+        return
       }
+      let viewWidth = document.body.clientWidth
+      let viewHeight = document.body.clientHeight
       let { clientX, clientY } = e
+      if (viewWidth - clientX < 150) {
+        clientX = clientX - 150
+      }
+      if (viewHeight - clientY < 82) {
+        clientY = clientY - 82
+      }
       setStyle({
         left: clientX + "px",
         top: clientY + "px"
@@ -58,12 +61,6 @@ export default function ContextMenu () {
       style={style}
     >
       <ul>
-        {contextMenuList.map((item, index) => {
-          return (
-            <li key={index}>{item}</li>
-          )
-        })}
-        <li>----------</li>
         <li onClick={System.StatusBar.hideOrShow}>隐藏/显示状态栏</li>
         <li onClick={System.LockScreen.lock}>锁屏</li>
         <li onClick={System.WebPC.fullScreen}>进入/退出全屏</li>

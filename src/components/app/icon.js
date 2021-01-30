@@ -78,6 +78,7 @@ function AppIcon (props) {
       onMouseDown={dragDropIcon}
       draggable={true}
       src={theApp.iconImg} alt={theApp.cname} />
+    // <div className={"name" + theApp.name}>{theApp.name}</div>
   )
 }
 

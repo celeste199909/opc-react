@@ -1,5 +1,5 @@
 export default function useDragDropIcon (e) {
-  // e.stopPropagation()
+
   let env = e.target.parentNode.parentNode.id
   // console.log(env);
   let droppables = document.querySelectorAll('.desktop-droppable');
@@ -13,7 +13,7 @@ export default function useDragDropIcon (e) {
 
   AppIcon.addEventListener('dragstart', dragStart);
   AppIcon.addEventListener('dragend', dragEnd);
-  function dragStart () {
+  function dragStart (e) {
     this.className += ' dragging';
     // setTimeout(() => {
     //   // this.className = 'invisible';
