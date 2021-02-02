@@ -5,26 +5,30 @@ function LockScreen () {
   let avatar = useSelector(state => state.acountInfo.avatar)
 
 
+
   useEffect(() => {
-    let root = document.querySelector("#root")
     let lockScreenEl = document.querySelector("#lock-screen")
 
-    lockScreenEl.addEventListener("keypress", spaceTofullScreen)
-    lockScreenEl.addEventListener("keypress", fullScreenEnterDesktop)
-    // 按空格开启全屏模式
-    function spaceTofullScreen (e) {
-      if (e.code === "Space") {
-        root.requestFullscreen()
-      }
-    }
+    lockScreenEl.addEventListener("keypress", keyEnterToDesktop)
 
     // 按 Enter 开启全屏模式并进入桌面
-    function fullScreenEnterDesktop (e) {
+    function keyEnterToDesktop (e) {
       if (e.code === "Enter") {
-        lockScreenEl.className = "unlock"
+        enterDesktop()
       }
     }
   })
+  // 开启全屏模式
+  function fullScreen (e) {
+    let root = document.querySelector("#root")
+    root.requestFullscreen()
+  }
+  // 进入桌面
+  function enterDesktop () {
+    let lockScreenEl = document.querySelector("#lock-screen")
+    lockScreenEl.className = "unlock"
+  }
+
 
   return (
     <div id="lock-screen" className="unlock">
@@ -35,8 +39,8 @@ function LockScreen () {
           </div>
         </div>
         <input autoFocus="autofocus" type="password" placeholder="按 Enter 开始吧" />
-        <div>按 <span>[ Enter ]</span> 进入桌面</div>
-        <div>按 <span>[ 空格 ]</span> 开启全屏</div>
+        <div>按 <span onClick={enterDesktop}>[ Enter ]</span> 进入桌面</div>
+        <div className="fullscreen-btn" onClick={fullScreen}>开启全屏</div>
       </div>
       <div className="footer">
         <div className="description">a personal computer simulator</div>

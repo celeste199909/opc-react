@@ -2,10 +2,10 @@ import { openApp, closeApp, minimizeApp, restoreApp, prepositionApp } from "./ac
 
 import Music from "../../applications/music"
 import Setting from "../../applications/setting"
-// import Bibilili from "../../applications/bibilili"
+import Weather from "../../applications/weather"
 
 export default function appManagerReducer (state = {
-  allApps: [Setting, Music],
+  allApps: [Setting, Music, Weather],
   openedApps: [],
   minimizeApps: [],
 }, action) {

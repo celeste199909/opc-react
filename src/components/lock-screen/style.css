@@ -10,7 +10,7 @@
   backdrop-filter: blur(20px);
   z-index: 200;
 
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -19,11 +19,22 @@
 }
 
 #lock-screen.lock {
-  display: flex;
+  visibility: visible;
+  animation: lock 1s forwards;
 }
 
 #lock-screen.unlock {
-  display: none;
+  visibility: hidden;
+}
+
+@keyframes lock {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 #lock-screen div.wrapper {
@@ -83,6 +94,25 @@
 
 #lock-screen div span {
   color: #e6e6e6;
+}
+
+#lock-screen div span:hover {
+  color: #ffe924;
+}
+
+.fullscreen-btn {
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  text-align: center;
+  background-color: rgba(119, 119, 119, 0.705);
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.fullscreen-btn:hover {
+  background-color: rgba(204, 204, 204, 0.705);
 }
 
 /* 底部信息 */

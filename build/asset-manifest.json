@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c525934f.chunk.css",
+    "main.js": "/static/js/main.d6d9ad56.chunk.js",
+    "main.js.map": "/static/js/main.d6d9ad56.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.cd99d328.js",
+    "runtime-main.js.map": "/static/js/runtime-main.cd99d328.js.map",
+    "static/js/2.c9921e31.chunk.js": "/static/js/2.c9921e31.chunk.js",
+    "static/js/2.c9921e31.chunk.js.map": "/static/js/2.c9921e31.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.c525934f.chunk.css.map": "/static/css/main.c525934f.chunk.css.map",
+    "static/js/2.c9921e31.chunk.js.LICENSE.txt": "/static/js/2.c9921e31.chunk.js.LICENSE.txt",
+    "static/media/avatar2.3a5098bf.jpeg": "/static/media/avatar2.3a5098bf.jpeg",
+    "static/media/avatar3.6f7dca9d.jpeg": "/static/media/avatar3.6f7dca9d.jpeg",
+    "static/media/avatar4.1758acb7.jpeg": "/static/media/avatar4.1758acb7.jpeg",
+    "static/media/avatar5.8b4c4a5a.jpeg": "/static/media/avatar5.8b4c4a5a.jpeg",
+    "static/media/system.c3c06007.png": "/static/media/system.c3c06007.png",
+    "static/media/touxiang.7e31423b.jpg": "/static/media/touxiang.7e31423b.jpg",
+    "static/media/wallpaper1.41609658.jpg": "/static/media/wallpaper1.41609658.jpg",
+    "static/media/wallpaper2.6a2257fb.jpg": "/static/media/wallpaper2.6a2257fb.jpg",
+    "static/media/desktop.css": "/static/media/wallpaper3.f905905e.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cd99d328.js",
+    "static/js/2.c9921e31.chunk.js",
+    "static/css/main.c525934f.chunk.css",
+    "static/js/main.d6d9ad56.chunk.js"
+  ]
+}

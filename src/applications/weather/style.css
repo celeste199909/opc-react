@@ -1,4 +1,4 @@
-#bibilili {
+#weather {
   position: absolute;
   width: 600px;
   height: 400px;
@@ -10,4 +10,8 @@
   color: rgb(255, 255, 255);
   background-color: rgba(5, 5, 5, 0.924);
   backdrop-filter: blur(5px);
+}
+
+#weather #weather-content-wrapper {
+  font-size: 100px;
 }

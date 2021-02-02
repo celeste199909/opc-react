@@ -1,56 +1,190 @@
 #music {
   position: absolute;
-  width: 600px;
-  height: 400px;
+  width: 800px;
+  height: 500px;
   min-width: 300px;
   min-height: 320px;
   top: 100px;
   left: 100px;
 
   color: rgb(255, 255, 255);
-  background-color: rgba(5, 5, 5, 0.924);
+  /* background-color: rgba(139, 139, 139, 0.924); */
+  background-image: url("http://p4.music.126.net/CcthX_ZCexIdriZADoNn3g==/109951165628166191.jpg");
   backdrop-filter: blur(5px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.music-content {
+#music .tools-bar .window-name {
+  text-shadow: 1px 1px #000;
+}
+
+#music-content-wrapper {
+  width: 100%;
+  height: calc(100% - 40px);
+}
+
+#music-content-wrapper .music-name {
+  color: aquamarine;
+  text-align: center;
+  font-size: 16px;
+  text-shadow: 1px 1px #000;
+}
+
+/* 底部 */
+.music-player-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.068);
+  z-index: 10;
+}
+
+/* 操作部分 */
+.music-player-wrapper .player-operations {
+  width: 100%;
+  height: 100%;
   display: flex;
-  padding: 10px 15px;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 左 */
-.music-content .main-left {
-  padding: 10px 15px;
-  flex: 0 0 150px;
-  background-color: black;
+.iconfont.icon-xihuan.color {
+  color: rgba(246, 35, 123, 0.836);
 }
 
-.music-content .main-left .title {
-  color: rgb(144, 144, 144);
-  margin-bottom: 20px;
+.music-player-wrapper .player-operations>div {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 20px;
+  background-color: aquamarine;
+  margin: 0 10px;
+  text-align: center;
+
 }
 
-.music-content .main-left .list {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+/* .music-player-wrapper .player-operations>div  */
+
+.music-player-wrapper .player-operations .pause-btn {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  /* font-size: 30px; */
 }
 
-.music-content .main-left .list li {
-  height: 2rem;
-  line-height: 2rem;
-  border-radius: 4px;
-  text-indent: 1rem;
-  user-select: none;
+.music-player-wrapper .player-operations .pause-btn i {
+  text-align: center;
+  font-size: 22px;
 }
 
-.music-content .main-left .list li:hover {
-  background-color: #327dfb;
+/* 设置 */
+.music-player-wrapper .music-setting {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  margin: 15px;
+  border-radius: 50%;
+  background-color: rgba(133, 133, 133, 0.376);
 }
 
-/* 右 */
-.music-content .main-right {
-  padding: 10px 15px;
-  flex: 1 0 auto;
-  position: relative;
-  box-sizing: border-box;
+/* 喜欢列表 */
+.music-player-wrapper .music-likelist-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  margin: 15px;
+}
+
+.music-likelist-wrapper .likelist-btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(133, 133, 133, 0.376);
+  text-align: center;
+}
+
+.music-likelist-wrapper .likelist-btn:hover {
+  background-color: rgba(127, 255,
+      212,
+      0.603);
+}
+
+#music-likelist {
+  position: absolute;
+  padding: 5px 10px;
+  bottom: 50px;
+  right: 0;
+  min-height: 100px;
+  min-width: 200px;
+  max-height: 370px;
+  background-color: rgba(80, 79, 79, 0.548);
+  border-radius: 6px;
+  overflow: scroll;
+}
+
+#music-likelist li {
+  height: 30px;
+  line-height: 30px;
+  border-radius: 6px;
+  padding: 0 6px;
+  overflow: hidden;
+}
+
+#music-likelist .empty-list-tip {
+  text-align: center;
+}
+
+#music-likelist li:hover {
+  color: aquamarine;
+  background-color: rgba(207, 207, 207, 0.541);
+}
+
+#music-likelist.likelist-show {
+  animation: showlist 1s forwards;
+}
+
+#music-likelist.likelist-hide {
+  animation: showlist 1s reverse forwards;
+}
+
+@keyframes showlist {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* 进度条 */
+.music-player-wrapper .progress-wrapper {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(121, 121, 121);
+}
+
+.music-player-wrapper .progress-wrapper .progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: aquamarine;
+  z-index: 10;
 }

@@ -41,7 +41,7 @@ li {
   /* 可定制 */
   border-radius: 8px;
   color: #000;
-  border: 1px solid #e7e7e755;
+  /* border: 1px solid #e7e7e755; */
   background-color: #f5f5f5f6;
   backdrop-filter: blur(10px);
   animation: openapp 0.2s both;

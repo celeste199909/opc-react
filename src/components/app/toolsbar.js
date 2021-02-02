@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux"
 import { useState } from "react"
 import "./style/toolsbar.css"
+import System from "../../system-api/index"
+
 function ToolsBar (props) {
 
   let dispatch = useDispatch()
@@ -28,6 +30,7 @@ function ToolsBar (props) {
   let [top, setTop] = useState(0)
 
   function handleMaximizeWindow (e) {
+    System.StatusBar.hideOrShow()
     setIsMaximized(!isMaximized)
 
     let id = theApp.name

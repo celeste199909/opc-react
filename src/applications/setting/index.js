@@ -32,6 +32,10 @@ import wallpaper1 from "../../static/images/wallpapers/wallpaper1.jpg"
 import wallpaper2 from "../../static/images/wallpapers/wallpaper2.jpg"
 import wallpaper3 from "../../static/images/wallpapers/wallpaper3.jpg"
 
+// import axios from "axios"
+
+// https://bing.biturl.top/ 必应每日壁纸
+
 let Setting = {
   name: "setting",
   cname: "设置",
@@ -200,7 +204,7 @@ function AppearanceSetting () {
   }
   return (
     <div id="appearance-setting">
-      <div id="theme-part" className="theme-part">
+      {/* <div id="theme-part" className="theme-part">
         <div className="setting-title">主题</div>
         <div className="select-theme-wrapper">
           <div className="light-theme">
@@ -212,7 +216,7 @@ function AppearanceSetting () {
             <label htmlFor="dark-theme">夜间</label>
           </div>
         </div>
-      </div>
+      </div> */}
       <div id="wallpaper-part" className="theme-part">
         <div className="setting-title">桌面壁纸</div>
         <div className="setting-description">选择一张图片作为桌面壁纸</div>
